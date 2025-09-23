@@ -174,7 +174,7 @@ export default function HeroSection() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col-reverse lg:flex-row items-center gap-8">
           {/* Left: content ~70% */}
-          <div className="w-full lg:w-[70%] text-left lg:text-left pr-4 mt-12 lg:">
+          <div className="w-full lg:w-[70%] text-left lg:text-left pr-4 mt-20 lg:">
             <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight text-[#011C4F]" style={{ textShadow: '0 1px 2px rgba(255,255,255,0.6)' }}>
               Membangun Solusi Digital Melalui Pengembangan <br></br>
               <span style={{ color: '#0253EE' }}>Full-Stack</span>
