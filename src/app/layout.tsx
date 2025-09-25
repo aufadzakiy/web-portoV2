@@ -1,4 +1,5 @@
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/next"
 import type { Metadata } from "next";
 import { Poppins, Montserrat, Inter, JetBrains_Mono, Orbitron } from "next/font/google";
 import "./globals.css";
@@ -52,6 +53,7 @@ export default function RootLayout({
       <body className={`${poppins.className} antialiased`}>
         {children}
         <SpeedInsights />
+        <Analytics />
         
         {/* Interactive Features Script (without custom cursor) */}
         <Script id="portfolio-interactions" strategy="afterInteractive">

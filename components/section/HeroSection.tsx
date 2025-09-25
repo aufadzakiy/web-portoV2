@@ -139,14 +139,7 @@ export default function HeroSection() {
       {/* background image using bg-kotak.png with overlay */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10"
-        style={{
-          backgroundColor: '#fff',
-          backgroundImage: `url('/bg-kotak.png')`,
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
+        className="absolute inset-0 -z-10 bg-white md:bg-[url('/bg-kotak.png')] bg-no-repeat bg-cover bg-center"
       />
       {/* subtle dark overlay to keep text readable over image
       <div
@@ -184,13 +177,13 @@ export default function HeroSection() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col-reverse lg:flex-row items-center gap-8">
           {/* Left: content ~70% */}
-          <div className="w-full lg:w-[70%] text-left lg:text-left pr-4 mt-6 lg:0">
-            <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight text-[#011C4F]" style={{ textShadow: '0 1px 2px rgba(255,255,255,0.6)' }}>
+          <div className="w-full lg:w-[70%] text-center sm:text-left pr-4 mt-6 lg:0">
+            <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight text-[#011C4F] text-left" style={{ textShadow: '0 1px 2px rgba(255,255,255,0.6)' }}>
               Membangun Solusi Digital Melalui Pengembangan <br></br>
               <span style={{ color: '#0253EE' }}>Full-Stack</span>
             </h1>
 
-            <p className="mt-6 text-black text-base sm:text-lg mx-auto lg:mx-0" style={{ textShadow: '0 1px 2px rgba(255,255,255,0.6)' }}>
+            <p className="mt-6 text-black text-base sm:text-lg mx-auto lg:mx-0 text-left" style={{ textShadow: '0 1px 2px rgba(255,255,255,0.6)' }}>
               Perkenalkan, saya Aufa. Saya bersemangat dalam menciptakan solusi digital yang utuh, dengan mengintegrasikan antarmuka pengguna yang intuitif dengan logika back-end yang andal dan berperforma tinggi.
             </p>
 
