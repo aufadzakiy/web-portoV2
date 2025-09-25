@@ -174,7 +174,7 @@ export default function HeroSection() {
           }}
         />
       </div>
-  <div className="container mx-auto px-0 lg:px-8">
+      <div className="container mx-auto px-0 lg:px-0">
         <div className="flex flex-col-reverse lg:flex-row items-center gap-8">
           {/* Left: content ~70% */}
           <div className="w-full lg:w-[70%] text-center sm:text-left pr-0 lg:pr-4 mt-6 lg:mt-0">
