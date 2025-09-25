@@ -149,6 +149,7 @@ const PartnersSection = () => {
           display: flex;
           align-items: center;
           margin: 0 var(--item-margin, 1rem);
+          padding: var(--item-padding, 0.5rem); /* added padding inside each icon */
         }
 
         @keyframes scroll {

@@ -26,17 +26,17 @@ export default function HeroSection() {
       '/react-js-icon.svg',
       '/figma-icon.svg',
       '/tailwind-icon.svg',
-      '/laravel.svg',
-      '/next.svg',
+      '/laravel2.svg',
+      '/Next.js.svg',
     ]
 
     // Layout presets for breakpoints
     const presets: Record<string, Array<{ src: string; left: string; top: string; size: number }>> = {
       desktop: [
-        { src: '/figma-icon.svg', left: 'calc(75% + 40px)', top: 'calc(35% + 140px)', size: 50 },
-        { src: '/next.svg', left: 'calc(25% - 140px)', top: 'calc(20% + 10px)', size: 120 },
-        { src: '/laravel.svg', left: 'calc(40% + 140px)', top: 'calc(10% - 10px)', size: 120 },
-        { src: '/flutter-icon.svg', left: 'calc(60% - 140px)', top: 'calc(90% + 10px)', size: 50 },
+        { src: '/figma-icon.svg', left: 'calc(70% + 40px)', top: 'calc(35% + 140px)', size: 70 },
+        { src: '/Next.js.svg', left: 'calc(25% - 140px)', top: 'calc(20% + 10px)', size: 120 },
+        { src: '/laravel2.svg', left: 'calc(40% + 140px)', top: 'calc(10% - 10px)', size: 100 },
+        { src: '/flutter-icon.svg', left: 'calc(50% - 140px)', top: 'calc(82% + 10px)', size: 80 },
       ],
       tablet: [
         { src: '/js-icon.svg', left: 'calc(50% + 110px)', top: 'calc(50% + 8px)', size: 40 },
@@ -47,8 +47,8 @@ export default function HeroSection() {
       // Use same positions as desktop to keep icons aligned between breakpoints
       mobile: [
         { src: '/figma-icon.svg', left: 'calc(60% + 40px)', top: 'calc(15% + 140px)', size: 50 },
-        { src: '/next.svg', left: 'calc(35% - 140px)', top: 'calc(5% + 10px)', size: 120 },
-        { src: '/laravel.svg', left: 'calc(5% + 140px)', top: 'calc(5% - 10px)', size: 120 },
+        { src: '/Next.js.svg', left: 'calc(45% - 140px)', top: 'calc(10% + 10px)', size: 90 },
+        { src: '/laravel2.svg', left: 'calc(10% + 140px)', top: 'calc(15% - 10px)', size: 80 },
         { src: '/flutter-icon.svg', left: 'calc(65% - 140px)', top: 'calc(80% + 10px)', size: 50 },
       ],
     }
@@ -86,6 +86,16 @@ export default function HeroSection() {
       animation-name: floatInner;
       animation-timing-function: ease-in-out;
       animation-iteration-count: infinite;
+      /* keep consistent inner padding so all icons visually match */
+      padding: 12%;
+    }
+
+    /* ensure badge images scale to the inner box consistently */
+    .badge-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
     }
 
     @keyframes floatFrame {
@@ -245,7 +255,6 @@ export default function HeroSection() {
                       <img
                         src={b.src}
                         alt={`badge-${idx}`}
-                        style={{ width: isLaravel ? '90%' : '70%', height: isLaravel ? '90%' : '70%', objectFit: 'contain' }}
                         className="select-none"
                       />
                     </div>
