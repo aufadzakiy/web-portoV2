@@ -156,7 +156,7 @@ export default function Header() {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="fixed inset-0 z-[100] bg-white/80 dark:bg-slate-200/80 backdrop-blur-lg lg:hidden"
+            className="fixed inset-0 z-[100] bg-white/80 backdrop-blur-lg lg:hidden"
           >
             <div className="container mx-auto px-6 h-full flex flex-col">
               <div className="flex items-center justify-between h-20">
@@ -167,7 +167,7 @@ export default function Header() {
                 >
                   &lt;A/&gt;
                 </a>
-                <button onClick={() => setIsMenuOpen(false)} className="p-2 text-slate-900 dark:text-[#0253EE]" aria-label="Close menu">
+                <button onClick={() => setIsMenuOpen(false)} className="p-2 text-[#0253EE]" aria-label="Close menu">
                   <span className="flex flex-col gap-1 items-end justify-center" aria-hidden="true" style={{ lineHeight: 0 }}>
                     <motion.span className="block w-9 h-1 bg-current rounded-full origin-center" variants={topBarVariants} animate={'open'} transition={{ type: 'tween', duration: 0.18 }} />
                     <motion.span className="block w-5 h-1 bg-current rounded-full origin-center" variants={middleBarVariants} animate={'open'} transition={{ type: 'tween', duration: 0.18 }} />

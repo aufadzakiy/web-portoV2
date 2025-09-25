@@ -134,7 +134,7 @@ export default function HeroSection() {
   `
 
   return (
-  <section className="w-full px-6 md:px-12 lg:px-24 py-24 md:py-44 lg:py-44 pb-11 lg:pb-45 relative overflow-hidden">
+  <section className="w-full px-6 md:px-12 lg:px-24 py-24 md:py-44 lg:py-44 pb-12 lg:pb-45 relative overflow-hidden">
       <style jsx>{extraStyles}</style>
       {/* background image using bg-kotak.png with overlay */}
       <div
@@ -174,7 +174,7 @@ export default function HeroSection() {
           }}
         />
       </div>
-      <div className="max-w-7xl mx-auto">
+  <div className="container mx-auto px-0 lg:px-8">
         <div className="flex flex-col-reverse lg:flex-row items-center gap-8">
           {/* Left: content ~70% */}
           <div className="w-full lg:w-[70%] text-center sm:text-left pr-0 lg:pr-4 mt-6 lg:mt-0">
@@ -187,22 +187,47 @@ export default function HeroSection() {
               Perkenalkan, saya Aufa. Saya bersemangat dalam menciptakan solusi digital yang utuh, dengan mengintegrasikan antarmuka pengguna yang intuitif dengan logika back-end yang andal dan berperforma tinggi.
             </p>
 
-            <div className="mt-8 flex flex-row flex-wrap items-center justify-center lg:justify-start gap-5">
-              <a
-                href="#projects"
-                className="inline-flex items-center justify-center gap-0 bg-[#0253EE] text-white font-semibold px-6 py-3 rounded-full shadow-2xl hover:scale-105 transition-transform focus:outline-none focus:ring-4 focus:ring-sky-200/40 w-auto"
-                aria-label="Lihat Proyek Saya"
-              >
-                <span className="hidden sm:inline">Lihat Proyek Saya</span>
-                <span className="inline sm:hidden">Proyek Saya</span>
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-3 bg-[#011C4F] text-white font-semibold px-6 py-3 rounded-full shadow-2xl hover:scale-105 transition-transform focus:outline-none focus:ring-4 focus:ring-slate-300/40 w-auto"
-                aria-label="Hubungi Saya"
-              >
-                Hubungi Saya
-              </a>
+            {/* Buttons: mobile version should match header container width */}
+            <div className="mt-8 w-full">
+              {/* Mobile-only container mirrors header sizing so buttons line up with header */}
+              <div className="block lg:hidden w-full">
+                <div className="w-full flex flex-col sm:flex-row sm:items-center sm:justify-center gap-4 px-0">
+                  <a
+                    href="#projects"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-0 bg-[#0253EE] text-white font-semibold px-6 py-3 rounded-full hover:scale-105 transition-transform focus:outline-none focus:ring-4 focus:ring-sky-200/40"
+                    aria-label="Lihat Proyek Saya"
+                  >
+                    <span className="hidden sm:inline">Lihat Proyek Saya</span>
+                    <span className="inline sm:hidden">Lihat Proyek Saya</span>
+                  </a>
+                  <a
+                    href="#contact"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#011C4F] text-white font-semibold px-6 py-3 rounded-full hover:scale-105 transition-transform focus:outline-none focus:ring-4 focus:ring-slate-300/40"
+                    aria-label="Hubungi Saya"
+                  >
+                    Hubungi Saya
+                  </a>
+                </div>
+              </div>
+
+              {/* Desktop / tablet: keep original inline layout */}
+              <div className="hidden lg:flex flex-row flex-wrap items-center justify-start gap-5">
+                <a
+                  href="#projects"
+                  className="inline-flex items-center justify-center gap-0 bg-[#0253EE] text-white font-semibold px-6 py-3 rounded-full hover:scale-105 transition-transform focus:outline-none focus:ring-4 focus:ring-sky-200/40 w-auto"
+                  aria-label="Lihat Proyek Saya"
+                >
+                  <span className="hidden sm:inline">Lihat Proyek Saya</span>
+                  <span className="inline sm:hidden">Proyek Saya</span>
+                </a>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center justify-center gap-3 bg-[#011C4F] text-white font-semibold px-6 py-3 rounded-full hover:scale-105 transition-transform focus:outline-none focus:ring-4 focus:ring-slate-300/40 w-auto"
+                  aria-label="Hubungi Saya"
+                >
+                  Hubungi Saya
+                </a>
+              </div>
             </div>
           </div>
 
