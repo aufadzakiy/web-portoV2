@@ -47,8 +47,8 @@ export default function HeroSection() {
       // Use same positions as desktop to keep icons aligned between breakpoints
       mobile: [
         { src: '/figma-icon.svg', left: 'calc(60% + 40px)', top: 'calc(15% + 140px)', size: 50 },
-        { src: '/Next.js.svg', left: 'calc(45% - 140px)', top: 'calc(10% + 10px)', size: 90 },
-        { src: '/laravel2.svg', left: 'calc(10% + 140px)', top: 'calc(15% - 10px)', size: 80 },
+        { src: '/Next.js.svg', left: 'calc(50% - 140px)', top: 'calc(20% + 10px)', size: 65 },
+        { src: '/laravel2.svg', left: 'calc(15% + 140px)', top: 'calc(20% - 10px)', size: 65 },
         { src: '/flutter-icon.svg', left: 'calc(65% - 140px)', top: 'calc(80% + 10px)', size: 50 },
       ],
     }
