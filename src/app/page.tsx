@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import HeroSection from '../../components/section/HeroSection';
+import LogoSlider from '../../components/section/LogoSlider';
+// import TechStackSection from '../../components/section/TechStackSection';
 
 export default function Home() {
   const [backVisible, setBackVisible] = useState(false);
@@ -29,6 +31,8 @@ export default function Home() {
       
       <main>
         <HeroSection />
+        <LogoSlider />
+        {/* <TechStackSection /> */}
       </main>
       
       <Footer />
