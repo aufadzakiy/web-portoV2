@@ -1,30 +1,25 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { X } from 'lucide-react';
 
 // Daftar link navigasi untuk memudahkan pengelolaan
 const navLinks = [
   { href: '#hero', label: 'Home' },
   { href: '#skills', label: 'Skills' },
   { href: '#projects', label: 'Projects' },
-  { href: '#contact', label: 'Contact' },
 ];
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const ctaRef = useRef<HTMLAnchorElement | null>(null);
+  const dividerRef = useRef<HTMLDivElement | null>(null);
+  const [ctaWidth, setCtaWidth] = useState<number | null>(null);
 
-  // Efek untuk tema dan scroll
+  // Efek untuk scroll
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      setIsDarkMode(true);
-      document.documentElement.classList.add('dark');
-    }
-
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
@@ -32,32 +27,44 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   
-  // Toggle Tema
-  const toggleTheme = () => {
-    setIsDarkMode(prevMode => {
-      const newMode = !prevMode;
-      if (newMode) {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-      }
-      return newMode;
-    });
-  };
-
   // Fungsi untuk smooth scroll
   const handleNavClick = (href: string) => {
     setIsMenuOpen(false);
     document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // Measure CTA width so divider can match its size on mobile overlay
+  useEffect(() => {
+    function updateWidth() {
+      if (ctaRef.current) setCtaWidth(ctaRef.current.offsetWidth);
+    }
+    // initial measure and on resize
+    updateWidth();
+    window.addEventListener('resize', updateWidth);
+    return () => window.removeEventListener('resize', updateWidth);
+  }, [isMenuOpen]);
+
   // Varian animasi untuk menu mobile
   const mobileMenuVariants: Variants = {
-    hidden: { x: '100%', opacity: 0 },
-    visible: { x: 0, opacity: 1, transition: { type: 'tween' as const, ease: 'easeInOut' as const } },
-    exit: { x: '100%', opacity: 0, transition: { type: 'tween' as const, ease: 'easeInOut' as const } },
+    hidden: { y: '-100%', opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { type: 'tween' as const, ease: 'easeInOut' as const } },
+    exit: { y: '-100%', opacity: 0, transition: { type: 'tween' as const, ease: 'easeInOut' as const } },
+  };
+
+  // Variants for hamburger bar animations (to morph into X)
+  const topBarVariants = {
+    closed: { rotate: 0, y: 0 },
+    open: { rotate: 45, y: 6 },
+  };
+
+  const middleBarVariants = {
+    closed: { opacity: 1, x: 0 },
+    open: { opacity: 0, x: -8 },
+  };
+
+  const bottomBarVariants = {
+    closed: { rotate: 0, y: 0 },
+    open: { rotate: -45, y: -6 },
   };
 
   return (
@@ -88,7 +95,7 @@ export default function Header() {
                     <a 
                       href={link.href}
                       onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                      className="relative px-4 py-2 text-slate-900 dark:text-slate-900 font-medium transition-colors hover:text-indigo-600 dark:hover:text-indigo-400 after:content-[''] after:absolute after:bottom-1 after:left-1/2 after:w-0 after:h-0.5 after:bg-indigo-500 after:transition-all after:duration-300 after:-translate-x-1/2 hover:after:w-[calc(100%-2rem)]"
+                      className="relative px-4 py-2 text-slate-900 dark:text-slate-900 font-medium transition-colors hover:text-[#0253EE] after:content-[''] after:absolute after:bottom-1 after:left-1/2 after:w-0 after:h-0.5 after:bg-indigo-500 after:transition-all after:duration-300 after:-translate-x-1/2 hover:after:w-[calc(100%-2rem)]"
                     >
                       {link.label}
                     </a>
@@ -108,19 +115,33 @@ export default function Header() {
                 >
                   Hubungi Saya
                 </a>
-                {/* Theme Switcher */}
-                <button onClick={toggleTheme} className="p-2 rounded-full text-slate-900 dark:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle theme">
-                  <span className="inline-flex items-center justify-center w-8 h-8 rounded-full border border-slate-300 dark:border-slate-600">
-                    {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-                  </span>
-                </button>
               </div>
             </div>
 
             {/* Tombol Menu Mobile */}
             <div className="lg:hidden">
-              <button onClick={() => setIsMenuOpen(true)} className="p-2 text-slate-900 dark:text-[#0253EE]" aria-label="Open menu">
-                <Menu size={24} />
+              <button onClick={() => setIsMenuOpen((s) => !s)} className="p-2 text-[#0253EE] flex items-center justify-end" aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}>
+                {/* Animated hamburger that morphs into X */}
+                <span className="flex flex-col gap-1 items-end justify-center" aria-hidden="true" style={{ lineHeight: 0 }}>
+                  <motion.span
+                    className="block w-9 h-1 bg-current rounded-full origin-center"
+                    variants={topBarVariants}
+                    animate={isMenuOpen ? 'open' : 'closed'}
+                    transition={{ type: 'tween', duration: 0.18 }}
+                  />
+                  <motion.span
+                    className="block w-5 h-1 bg-current rounded-full origin-center"
+                    variants={middleBarVariants}
+                    animate={isMenuOpen ? 'open' : 'closed'}
+                    transition={{ type: 'tween', duration: 0.18 }}
+                  />
+                  <motion.span
+                    className="block w-7 h-1 bg-current rounded-full origin-center"
+                    variants={bottomBarVariants}
+                    animate={isMenuOpen ? 'open' : 'closed'}
+                    transition={{ type: 'tween', duration: 0.18 }}
+                  />
+                </span>
               </button>
             </div>
           </div>
@@ -147,7 +168,11 @@ export default function Header() {
                   &lt;A/&gt;
                 </a>
                 <button onClick={() => setIsMenuOpen(false)} className="p-2 text-slate-900 dark:text-[#0253EE]" aria-label="Close menu">
-                  <X size={24} />
+                  <span className="flex flex-col gap-1 items-end justify-center" aria-hidden="true" style={{ lineHeight: 0 }}>
+                    <motion.span className="block w-9 h-1 bg-current rounded-full origin-center" variants={topBarVariants} animate={'open'} transition={{ type: 'tween', duration: 0.18 }} />
+                    <motion.span className="block w-5 h-1 bg-current rounded-full origin-center" variants={middleBarVariants} animate={'open'} transition={{ type: 'tween', duration: 0.18 }} />
+                    <motion.span className="block w-7 h-1 bg-current rounded-full origin-center" variants={bottomBarVariants} animate={'open'} transition={{ type: 'tween', duration: 0.18 }} />
+                  </span>
                 </button>
               </div>
 
@@ -164,20 +189,17 @@ export default function Header() {
                 ))}
                 
                 {/* Theme & CTA di mobile */}
-                <div className="mt-12 flex flex-col items-center gap-6">
+                {/* Divider above CTA */}
+                <div ref={dividerRef} className="w-full border-t border-black mt-8" aria-hidden="true" style={ctaWidth ? { width: ctaWidth } : undefined} />
+                <div className="mt-6 flex flex-col items-center gap-6">
                   <a
                     href="#contact"
+                    ref={ctaRef}
                     onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }}
-                    className="px-8 py-3 text-lg font-semibold text-white bg-[#0253EE] rounded-lg shadow-md hover:bg-indigo-700 transition-all duration-300"
+                    className="px-8 py-3 text-lg font-semibold text-white bg-[#0253EE] rounded-full shadow-md hover:bg-indigo-700 transition-all duration-300"
                   >
                     Hubungi Saya
                   </a>
-                  <button onClick={toggleTheme} className="flex items-center gap-3 p-3 rounded-full text-slate-900 dark:text-black hover:bg-slate-100 dark:hover:bg-slate-500 transition-colors text-lg" aria-label="Toggle theme">
-                    <span className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-slate-300 dark:border-slate-600">
-                      {isDarkMode ? <Sun /> : <Moon />}
-                    </span>
-                    <span>{isDarkMode ? "Light Mode" : "Dark Mode"}</span>
-                  </button>
                 </div>
               </div>
             </div>

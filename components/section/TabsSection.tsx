@@ -27,15 +27,15 @@ export default function TabsSection() {
           {/* right line: visible on all sizes */}
           <div className="w-24 h-[1px] ml-3 rounded-sm bg-gradient-to-l from-slate-400/20 via-slate-400/50 to-slate-400/90" aria-hidden="true" />
         </div>
-        <h2 className="text-4xl md:text-4xl font-extrabold text-center text-slate-900 mb-4 mt-8">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-center text-slate-900 mb-4 mt-8">
           {TAB_LABELS[active]}
         </h2>
 
         {/* Tabs container (show all tabs, wrap instead of horizontal scroll) */}
-        <div className="bg-white rounded-2xl shadow-sm p-3">
+        <div className="rounded-2xl">
           <div
             role="tablist"
-            className="flex flex-col sm:flex-row sm:flex-nowrap items-center sm:justify-center gap-4 py-4 px-4 overflow-visible sm:overflow-x-auto"
+            className="flex flex-col sm:flex-row sm:flex-nowrap items-center sm:justify-center gap-4 py-4 px-0 overflow-visible sm:overflow-x-auto"
           >
             {TAB_LABELS.map((label, idx) => {
               const isActive = idx === active
@@ -48,7 +48,7 @@ export default function TabsSection() {
                   aria-selected={isActive}
                   aria-controls={`tab-panel-${idx}`}
                   tabIndex={isActive ? 0 : -1}
-                  className={`mx-auto w-full max-w-[360px] sm:w-auto sm:max-w-[220px] px-6 py-4 rounded-xl text-center font-semibold text-base sm:text-sm leading-tight whitespace-normal break-words transition-transform duration-150 focus:outline-none focus:ring-4 focus:ring-sky-200/50 ${
+                  className={`mx-auto w-full max-w-[360px] sm:w-auto sm:max-w-[220px] px-10 py-5 rounded-xl text-center font-semibold text-base sm:text-sm leading-tight whitespace-normal break-words transition-transform duration-150 focus:outline-none focus:ring-4 focus:ring-sky-200/50 ${
                     isActive
                       ? 'bg-[#0253EE] text-white shadow-lg'
                       : 'bg-white text-slate-800 border border-slate-200 hover:scale-[1.01]'

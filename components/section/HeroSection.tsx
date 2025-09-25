@@ -134,7 +134,7 @@ export default function HeroSection() {
   `
 
   return (
-  <section className="w-full px-6 md:px-12 lg:px-24 py-24 md:py-44 lg:py-44 relative overflow-hidden">
+  <section className="w-full px-6 md:px-12 lg:px-24 py-24 md:py-44 lg:py-44 pb-11 lg:pb-45 relative overflow-hidden">
       <style jsx>{extraStyles}</style>
       {/* background image using bg-kotak.png with overlay */}
       <div
@@ -177,27 +177,28 @@ export default function HeroSection() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col-reverse lg:flex-row items-center gap-8">
           {/* Left: content ~70% */}
-          <div className="w-full lg:w-[70%] text-center sm:text-left pr-4 mt-6 lg:0">
-            <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight text-[#011C4F] text-left" style={{ textShadow: '0 1px 2px rgba(255,255,255,0.6)' }}>
+          <div className="w-full lg:w-[70%] text-center sm:text-left pr-0 lg:pr-4 mt-6 lg:mt-0">
+            <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight text-[#011C4F] text-left sm:text-left" style={{ textShadow: '0 1px 2px rgba(255,255,255,0.6)' }}>
               Membangun Solusi Digital Melalui Pengembangan <br></br>
               <span style={{ color: '#0253EE' }}>Full-Stack</span>
             </h1>
 
-            <p className="mt-6 text-black text-base sm:text-lg mx-auto lg:mx-0 text-left" style={{ textShadow: '0 1px 2px rgba(255,255,255,0.6)' }}>
+            <p className="mt-6 text-black text-base sm:text-lg mx-auto lg:mx-0 text-left sm:text-left" style={{ textShadow: '0 1px 2px rgba(255,255,255,0.6)' }}>
               Perkenalkan, saya Aufa. Saya bersemangat dalam menciptakan solusi digital yang utuh, dengan mengintegrasikan antarmuka pengguna yang intuitif dengan logika back-end yang andal dan berperforma tinggi.
             </p>
 
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <div className="mt-8 flex flex-row flex-wrap items-center justify-center lg:justify-start gap-5">
               <a
                 href="#projects"
-                className="inline-flex items-center justify-center gap-3 bg-[#0253EE] text-white font-semibold px-6 py-3 rounded-full shadow-2xl hover:scale-105 transition-transform focus:outline-none focus:ring-4 focus:ring-sky-200/40 w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-0 bg-[#0253EE] text-white font-semibold px-6 py-3 rounded-full shadow-2xl hover:scale-105 transition-transform focus:outline-none focus:ring-4 focus:ring-sky-200/40 w-auto"
                 aria-label="Lihat Proyek Saya"
               >
-                Lihat Proyek Saya
+                <span className="hidden sm:inline">Lihat Proyek Saya</span>
+                <span className="inline sm:hidden">Proyek Saya</span>
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center gap-3 bg-[#011C4F] text-white font-semibold px-6 py-3 rounded-full shadow-2xl hover:scale-105 transition-transform focus:outline-none focus:ring-4 focus:ring-slate-300/40 w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-3 bg-[#011C4F] text-white font-semibold px-6 py-3 rounded-full shadow-2xl hover:scale-105 transition-transform focus:outline-none focus:ring-4 focus:ring-slate-300/40 w-auto"
                 aria-label="Hubungi Saya"
               >
                 Hubungi Saya
