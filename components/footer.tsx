@@ -80,7 +80,7 @@ export default function Footer() {
       </div>
 
       {/* Footer Top */}
-      <div className="relative z-10 py-16 border-b border-gray-800 dark:border-gray-700">
+      <div className="relative z-10 py-16 border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Brand Section */}
@@ -102,7 +102,7 @@ export default function Footer() {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-10 h-10 bg-gray-800 dark:bg-gray-700 rounded-lg flex items-center justify-center text-gray-400 ${social.color} transition-all duration-300 hover:scale-110 hover:bg-gray-700 dark:hover:bg-gray-600`}
+                    className={`w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 ${social.color} transition-all duration-300 hover:scale-110 hover:bg-gray-700 `}
                     aria-label={social.name}
                   >
                     <i className={`${social.icon} text-lg`}></i>

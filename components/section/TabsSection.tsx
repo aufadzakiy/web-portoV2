@@ -15,7 +15,7 @@ export default function TabsSection() {
   const [active, setActive] = useState<number>(0)
 
   return (
-    <section className="w-full py-12 bg-white">
+    <section id="skills" className="w-full py-12 bg-white">
       <div className="container mx-auto px-6 lg:px-8">
         {/* Decorative gradient lines with label */}
         <div className="flex items-center justify-center mb-2">

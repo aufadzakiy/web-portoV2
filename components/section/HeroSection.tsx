@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import Link from 'next/link'
 
 export default function HeroSection() {
   const [badges, setBadges] = useState<any[]>([])
@@ -134,7 +135,7 @@ export default function HeroSection() {
   `
 
   return (
-  <section className="w-full px-6 md:px-12 lg:px-24 py-24 md:py-44 lg:py-44 pb-12 lg:pb-45 relative overflow-hidden">
+  <section id="hero" className="w-full px-6 md:px-12 lg:px-24 py-24 md:py-44 lg:py-44 pb-12 lg:pb-45 relative overflow-hidden">
       <style jsx>{extraStyles}</style>
       {/* background image using bg-kotak.png with overlay */}
       <div
@@ -200,13 +201,13 @@ export default function HeroSection() {
                     <span className="hidden sm:inline">Lihat Proyek Saya</span>
                     <span className="inline sm:hidden">Lihat Proyek Saya</span>
                   </a>
-                  <a
-                    href="#contact"
+                  <Link
+                    href="/contact"
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#011C4F] text-white font-semibold px-6 py-3 rounded-full hover:scale-105 transition-transform focus:outline-none focus:ring-4 focus:ring-slate-300/40"
                     aria-label="Hubungi Saya"
                   >
                     Hubungi Saya
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -220,13 +221,13 @@ export default function HeroSection() {
                   <span className="hidden sm:inline">Lihat Proyek Saya</span>
                   <span className="inline sm:hidden">Proyek Saya</span>
                 </a>
-                <a
-                  href="#contact"
+                <Link
+                  href="/contact"
                   className="inline-flex items-center justify-center gap-3 bg-[#011C4F] text-white font-semibold px-6 py-3 rounded-full hover:scale-105 transition-transform focus:outline-none focus:ring-4 focus:ring-slate-300/40 w-auto"
                   aria-label="Hubungi Saya"
                 >
                   Hubungi Saya
-                </a>
+                </Link>
               </div>
             </div>
           </div>
