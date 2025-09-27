@@ -47,7 +47,7 @@ export default function Footer() {
               Aufa Dzakiy
             </h3>
             <p className="text-white mt-2 text-base">
-              Crafting digital solutions that make an impact.
+              Merancang solusi digital yang membawa dampak nyata.
             </p>
             <div className="flex space-x-6 mt-6">
               {socialLinks.map((item) => (
@@ -67,11 +67,10 @@ export default function Footer() {
           <div className="grid grid-cols-1 gap-8">
             <div>
               <h3 className="text-lg font-semibold text-white tracking-wider uppercase">
-                Let's Connect
+                Mari Terhubung
               </h3>
               <p className="text-base text-white mt-4">
-                I'm always open to discussing new projects, creative ideas, or
-                opportunities to be part of an amazing team.
+                Saya selalu antusias untuk mendiskusikan proyek baru, ide-ide kreatif, atau peluang untuk berkolaborasi dalam sebuah tim yang hebat. Jangan ragu untuk menghubungi saya.
               </p>
               
             </div>

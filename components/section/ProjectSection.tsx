@@ -7,7 +7,7 @@ type Project = {
   title: string;
   description: string;
   image: string;
-  role: string;
+  role: string[];
   technologies: string[];
   liveDemoUrl?: string;
   sourceCodeUrl?: string;
@@ -19,8 +19,8 @@ const projects: Project[] = [
     description:
       "Mengembangkan platform web untuk distribusi minyak jelantah, dengan fitur utama pelacakan real-time dan manajemen pengguna untuk efisiensi operasional.",
     image: '/porto1.png',
-    role: 'Full-Stack Developer',
-    technologies: ['React', 'TypeScript', 'Tailwind CSS'],
+    role: ['Full-Stack Developer', 'UI/UX Designer'],
+    technologies: ['Laravel', 'MySQL', 'Tailwind CSS'],
     liveDemoUrl: '#',
     sourceCodeUrl: '#',
   },
@@ -29,8 +29,8 @@ const projects: Project[] = [
     description:
       "Membangun aplikasi mobile cross-platform untuk manajemen transaksi minyak jelantah, dilengkapi antarmuka intuitif dan notifikasi status real-time.",
     image: '/porto2.png',
-    role: 'Mobile Developer',
-    technologies: ['Flutter', 'Dart', 'Firebase'],
+    role: ['Mobile Developer'],
+    technologies: ['Flutter', 'Dart', 'Rest API'],
     liveDemoUrl: '#',
     sourceCodeUrl: '#',
   },
@@ -39,7 +39,7 @@ const projects: Project[] = [
     description:
       "Merancang sistem prediktif berbasis machine learning untuk memprakirakan kondisi cuaca, guna mendukung analisis dan pengambilan keputusan.",
     image: '/porto3.png',
-    role: 'Machine Learning Engineer',
+    role: ['Machine Learning Engineer'],
     technologies: ['Python', 'Scikit-learn', 'Pandas'],
     liveDemoUrl: '#',
     sourceCodeUrl: '#',
@@ -54,7 +54,11 @@ const techIconMap: { [key: string]: string } = {
   'Dart': '/dart-icon.svg',
   'Firebase': '/firebase-icon.svg',
   'Python': '/python-icon.svg',
+  'Pandas': '/python-icon.svg',
   'Scikit-learn': '/scikit-icon.svg',
+  'MySQL': '/mysql-icon.svg',
+  'Laravel': '/laravel.svg',
+  'Rest API': '/firebase-icon.svg'
 };
 
 const ProjectSection = () => {
@@ -106,10 +110,10 @@ const ProjectSection = () => {
           />
         </motion.div>
         <h2 className="text-5xl font-bold text-center text-white lg:text-black mb-6">
-          Bringing Ideas to Life
+          Mewujudkan Ide Menjadi Karya
         </h2>
         <p className="text-lg text-white lg:text-black text-center max-w-3xl mx-auto mb-12">
-          Here are some of the selected projects that showcase my skills in turning complex problems into elegant solutions.
+          Berikut adalah beberapa proyek pilihan yang merepresentasikan keahlian saya dalam mengubah tantangan kompleks menjadi solusi digital yang fungsional dan elegan.
         </p>
 
         <div className="relative py-4">
@@ -125,9 +129,13 @@ const ProjectSection = () => {
                                   <div key={idx} className="min-w-full lg:bg-gray-50">
                                     <div className="grid grid-cols-1 lg:grid-cols-2 items-end lg:items-center">
                                       <div className={`order-1 p-8 lg:p-12 space-y-6 ${idx % 2 === 1 ? 'lg:order-2' : 'lg:order-1'}`}>
-                                        <span className="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full">
-                                          {project.role}
-                                        </span>
+                                        <div className="flex flex-wrap items-center gap-2 mb-4">
+                                          {project.role.map((r, i) => (
+                                            <span key={i} className="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full">
+                                              {r}
+                                            </span>
+                                          ))}
+                                        </div>
                                         <h3 className="text-3xl font-bold text-gray-900 leading-tight">
                                           {project.title}
                                         </h3>
@@ -168,7 +176,7 @@ const ProjectSection = () => {
                                               href={project.sourceCodeUrl}
                                               target="_blank"
                                               rel="noopener noreferrer"
-                                              className="inline-flex items-center justify-center px-6 py-3 bg-gray-700 text-white font-medium rounded-full hover:bg-gray-800 transition-colors duration-200 shadow-sm w-full sm:flex-1"
+                                              className="inline-flex items-center justify-center px-6 py-3 bg-black text-white font-medium rounded-full hover:bg-gray-800 transition-colors duration-200 shadow-sm w-full sm:flex-1"
                                             >
                                               <Code className="w-5 h-5 mr-2" />
                                               View Code

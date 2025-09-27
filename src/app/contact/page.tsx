@@ -54,8 +54,8 @@ const ContactPageContent = () => {
         setModalState({
           isOpen: true,
           type: "success",
-          title: "Message Sent!",
-          message: "Thank you for reaching out. I'll get back to you shortly.",
+          title: "Pesan Terkirim!",
+          message: "Terima kasih telah menghubungi. Saya akan segera membalas pesan Anda.",
         });
       },
       (err) => {
@@ -63,8 +63,8 @@ const ContactPageContent = () => {
         setModalState({
           isOpen: true,
           type: "error",
-          title: "Submission Failed",
-          message: "Something went wrong. Please try again later or contact me directly.",
+          title: "Pengiriman Gagal",
+          message: "Terjadi kesalahan. Silakan coba lagi nanti atau hubungi saya secara langsung.",
         });
       },
     ).finally(() => {
@@ -89,19 +89,19 @@ const ContactPageContent = () => {
             <div className="lg:flex">
               {/* Left Side */}
               <div className="w-full lg:w-4/12 p-8 lg:p-12 text-white bg-blue-600 rounded-t-2xl lg:rounded-l-2xl lg:rounded-t-none">
-                <h2 className="text-3xl font-bold mb-4">Let's Start a Conversation</h2>
+                <h2 className="text-3xl font-bold mb-4">Mari Mulai Diskusi</h2>
                 <p className="mb-6">
-                  I build practical web solutions and enjoy collaborating with teams. Have an idea or opportunity? I'm happy to chat.
+                  Saya membangun solusi web yang praktis dan fungsional, serta senang berkolaborasi dalam tim. Jika Anda memiliki ide atau peluang, saya siap untuk berdiskusi.
                 </p>
                 <p className="mb-6">
-                  I focus on user-centered development that delivers real results. Let's explore how I can help your project.
+                  Fokus saya adalah pengembangan yang berpusat pada pengguna untuk memberikan hasil nyata. Mari kita diskusikan bagaimana saya dapat membantu kesuksesan proyek Anda.
                 </p>
                 <div className="border-t border-blue-500 pt-6">
-                  <p className="font-semibold">What you can expect:</p>
+                  <p className="font-semibold">Apa yang Anda Dapatkan:</p>
                   <ul className="list-disc list-inside mt-2 space-y-1">
-                    <li>A prompt and thoughtful response.</li>
-                    <li>A collaborative and transparent approach.</li>
-                    <li>A focus on quality and user-centric design.</li>
+                    <li>Respons yang cepat dan profesional.</li>
+                    <li>Pendekatan yang kolaboratif dan transparan.</li>
+                    <li>Fokus pada kualitas dan desain yang berpusat pada pengguna.</li>
                   </ul>
                 </div>
               </div>
@@ -109,9 +109,9 @@ const ContactPageContent = () => {
               {/* Right Side (Form) */}
               <div className="w-full lg:w-8/12 p-8 lg:p-12 bg-gray-50 rounded-b-2xl lg:rounded-r-2xl lg:rounded-bl-none">
                 <div className="text-center mb-8">
-                  <h1 className="text-4xl font-bold text-gray-800">Get In Touch</h1>
+                  <h1 className="text-4xl font-bold text-gray-800">Hubungi Saya</h1>
                   <p className="mt-3 text-gray-600">
-                    Fill out the form below, and I'll get back to you as soon as possible.
+                    Silakan isi formulir di bawah ini, dan saya akan segera menghubungi Anda kembali.
                   </p>
                 </div>
 
@@ -123,7 +123,7 @@ const ContactPageContent = () => {
                       htmlFor="firstName"
                       className="block text-sm font-medium text-gray-700 mb-1"
                     >
-                      First Name <span className="text-red-500">*</span>
+                      Nama Depan <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="firstName"
@@ -141,7 +141,7 @@ const ContactPageContent = () => {
                       htmlFor="lastName"
                       className="block text-sm font-medium text-gray-700 mb-1"
                     >
-                      Last Name
+                      Nama Belakang
                     </label>
                     <input
                       id="lastName"
@@ -179,14 +179,14 @@ const ContactPageContent = () => {
                     htmlFor="message"
                     className="block text-sm font-medium text-gray-700 mb-1"
                   >
-                    Message <span className="text-red-500">*</span>
+                    Pesan <span className="text-red-500">*</span>
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     rows={5}
                     required
-                    placeholder="Your message here..."
+                    placeholder="Tulis pesan Anda di sini..."
                     value={formData.message}
                     onChange={handleChange}
                     className="w-full px-4 py-2.5 border border-gray-300 rounded-md placeholder-gray-400 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
@@ -199,7 +199,7 @@ const ContactPageContent = () => {
                       disabled={isLoading}
                       className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      {isLoading ? "Sending..." : "Send Message"}
+                      {isLoading ? "Mengirim..." : "Kirim Pesan"}
                     </button>
                   </div>
                 </form>
