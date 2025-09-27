@@ -252,17 +252,14 @@ export default function HeroSection() {
               className="text-4xl sm:text-5xl font-extrabold leading-tight text-[#011C4F] text-left sm:text-left"
               style={{ textShadow: "0 1px 2px rgba(255,255,255,0.6)" }}
             >
-              Membangun Solusi Digital Melalui Pengembangan <br></br>
-              <span style={{ color: "#0253EE" }}>Full-Stack</span>
+              Mengubah Ide Kompleks Menjadi <span style={{ color: "#0253EE" }}> Solusi Digital yang Elegan</span>
             </h1>
 
             <p
-              className="mt-6 text-black text-base sm:text-lg mx-auto lg:mx-0 text-left sm:text-left"
+              className="mt-6 text-black text-base sm:text-lg mx-auto lg:pr-1 text-left sm:text-left"
               style={{ textShadow: "0 1px 2px rgba(255,255,255,0.6)" }}
             >
-              Perkenalkan, saya Aufa. Saya bersemangat dalam menciptakan solusi
-              digital yang utuh, dengan mengintegrasikan antarmuka pengguna yang
-              intuitif dengan logika back-end yang andal dan berperforma tinggi.
+              Saya Aufa, seorang developer yang berdedikasi untuk merancang dan membangun aplikasi digital yang luar biasa. Dari antarmuka yang responsif hingga arsitektur back-end yang kokoh, saya memastikan setiap proyek tidak hanya memenuhi standar teknis tertinggi tetapi juga memberikan pengalaman pengguna yang tak terlupakan.
             </p>
 
             {/* Buttons: mobile version should match header container width */}

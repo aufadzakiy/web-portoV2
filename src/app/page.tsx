@@ -8,6 +8,7 @@ import HeroSection from "../../components/section/HeroSection";
 import LogoSlider from "../../components/section/LogoSlider";
 import TabsSection from "../../components/section/TabsSection";
 import CtaBannerSection from "../../components/section/CtaBanner";
+import ProjectSection from "../../components/section/ProjectSection";
 
 export default function Home() {
   const [backVisible, setBackVisible] = useState(false);
@@ -33,6 +34,7 @@ export default function Home() {
         <HeroSection />
         <LogoSlider />
         <TabsSection />
+        <ProjectSection />
         <CtaBannerSection />
       </main>
 

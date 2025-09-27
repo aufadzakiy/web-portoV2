@@ -7,13 +7,13 @@ import Link from "next/link";
 const CtaBannerSection = () => {
   return (
     <section className="bg-white">
-      <div className="container mx-auto px-6 lg:px-8 py-10 sm:py-16 md:py-24">
+      <div className="container mx-auto px-6 lg:px-8 py-10 sm:py-16 md:py-17">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={staggerContainer}
-          className="relative bg-gradient-to-br from-[#004bd5] to-[#0253EE] text-white rounded-4xl pt-10 pb-10 sm:p-8 md:p-12 text-center overflow-hidden"
+          className="relative bg-gradient-to-br from-[#004bd5] to-[#0253EE] text-white rounded-3xl pt-10 pb-10 sm:p-8 md:p-12 text-center overflow-hidden"
         >
           <motion.h2
             variants={fadeIn()}
