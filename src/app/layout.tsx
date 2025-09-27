@@ -42,9 +42,12 @@ const orbitron = Orbitron({
 });
 
 export const metadata: Metadata = {
-  title: "Portofolio Kreatif - Aufa Dzakiy",
+  title: "Aufa Dzakiy - Full-Stack Developer & UI/UX Designer",
   description:
-    "Portfolio website showcasing web development, mobile development, UI/UX design, and machine learning projects",
+    "Portofolio Aufa Dzakiy, seorang Full-Stack Developer yang berfokus pada pembuatan aplikasi web dan mobile modern dengan penekanan kuat pada UI/UX. Terbuka untuk proyek baru dan peluang karir.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({

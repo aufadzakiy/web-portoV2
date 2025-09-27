@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 
 // 1. Perbarui href ke root-relative paths
@@ -65,11 +66,8 @@ export default function Header() {
         <div className="container mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* 2. Ganti Logo dengan Link */}
-            <Link
-              href="/#hero"
-              className="text-2xl font-bold bg-[#0253EE] bg-clip-text text-transparent"
-            >
-              &lt;A/&gt;
+            <Link href="/#hero" className="flex items-center">
+              <Image src="/favicon.svg" alt="Aufa Dzakiy Logo" width={50} height={50} />
             </Link>
 
             {/* Navigasi Desktop */}
@@ -152,9 +150,9 @@ export default function Header() {
                 <Link
                   href="/#hero"
                   onClick={() => setIsMenuOpen(false)}
-                  className="text-2xl font-bold bg-[#0253EE] bg-clip-text text-transparent"
+                  className="flex items-center"
                 >
-                  &lt;A/&gt;
+                  <Image src="/favicon.svg" alt="Aufa Dzakiy Logo" width={50} height={50} />
                 </Link>
                 <button
                   onClick={() => setIsMenuOpen(false)}
