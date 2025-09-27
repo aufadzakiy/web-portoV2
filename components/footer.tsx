@@ -1,237 +1,89 @@
-'use client';
+const socialLinks = [
+  {
+    name: "GitHub",
+    href: "https://github.com/aufadzakiy",
+    icon: (props: React.SVGProps<SVGSVGElement>) => (
+      <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+        <title>GitHub</title>
+        <path
+          fillRule="evenodd"
+          d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z"
+          clipRule="evenodd"
+        />
+      </svg>
+    ),
+  },
+  {
+    name: "LinkedIn",
+    href: "https://linkedin.com/in/aufadzakiy",
+    icon: (props: React.SVGProps<SVGSVGElement>) => (
+      <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+        <title>LinkedIn</title>
+        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+      </svg>
+    ),
+  },
+];
 
-import { useState, useEffect } from 'react';
-
-interface Particle {
-  id: number;
-  left: string;
-  top: string;
-  animationDelay: string;
-  animationDuration: string;
-}
+const navigationLinks = [
+  { name: "Home", href: "#hero" },
+  { name: "Skills", href: "#about" },
+  { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
+];
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const [particles, setParticles] = useState<Particle[]>([]);
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-    
-    // Initialize particles on client side
-    const newParticles = Array.from({ length: 15 }, (_, i) => ({
-      id: i,
-      left: `${Math.random() * 100}%`,
-      top: `${Math.random() * 100}%`,
-      animationDelay: `${Math.random() * 2}s`,
-      animationDuration: `${2 + Math.random() * 3}s`
-    }));
-    setParticles(newParticles);
-  }, []);
-
-  const socialLinks = [
-    { name: 'Instagram', icon: 'fab fa-instagram', url: 'https://instagram.com/aufadzakiy', color: 'hover:text-pink-500' },
-    { name: 'Twitter', icon: 'fab fa-twitter', url: 'https://twitter.com/aufadzakiy', color: 'hover:text-blue-400' },
-    { name: 'LinkedIn', icon: 'fab fa-linkedin', url: 'https://linkedin.com/in/aufadzakiy', color: 'hover:text-blue-600' },
-    { name: 'GitHub', icon: 'fab fa-github', url: 'https://github.com/aufadzakiy', color: 'hover:text-gray-600' },
-    { name: 'YouTube', icon: 'fab fa-youtube', url: 'https://youtube.com/aufadzakiy', color: 'hover:text-red-500' }
-  ];
-
-  const navigationLinks = [
-    { name: 'Home', href: '#hero' },
-    { name: 'Skill', href: '#about' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' }
-  ];
-
-  const services = [
-    'Web Development',
-    'Mobile Development',
-    'UI/UX Design',
-    'Machine Learning',
-    'Consulting',
-    'Technical Writing'
-  ];
-
-  const contactInfo = [
-    { icon: 'fas fa-envelope', text: 'aufadzakiy@example.com', link: 'mailto:aufadzakiy@example.com' },
-    { icon: 'fab fa-whatsapp', text: '+62 838-7283-9074', link: 'https://wa.me/6283872839074' },
-    { icon: 'fas fa-map-marker-alt', text: 'Jalan Adhyaksa Raya, Sukapura, Dayeuhkolot, Bandung, Jawa Barat, Indonesia', link: '#' }
-  ];
-
-  const handleNavClick = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
 
   return (
-    <footer id="main-footer" className="relative bg-white text-white overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div 
-          className="w-full h-full"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}
-        ></div>
-      </div>
-
-      {/* Footer Top */}
-      <div className="relative z-10 py-16 border-b border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Brand Section */}
-            <div className="lg:col-span-1">
-              <div className="mb-6">
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent font-poppins">
-                  Portofolio.
-                </h3>
-                <p className="text-gray-400 mt-2 font-poppins leading-relaxed">
-                  Menciptakan pengalaman digital yang mengesankan melalui kode yang berkualitas dan desain yang thoughtful.
-                </p>
-              </div>
-              
-              {/* Social Links */}
-              <div className="flex space-x-4">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 ${social.color} transition-all duration-300 hover:scale-110 hover:bg-gray-700 `}
-                    aria-label={social.name}
-                  >
-                    <i className={`${social.icon} text-lg`}></i>
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            {/* Navigation Links */}
-            <div className="lg:col-span-1">
-              <h4 className="text-lg font-semibold mb-6 font-poppins">Navigasi</h4>
-              <ul className="space-y-3">
-                {navigationLinks.map((link) => (
-                  <li key={link.name}>
-                    <a
-                      href={link.href}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleNavClick(link.href);
-                      }}
-                      className="text-gray-400 hover:text-white transition-colors duration-300 font-poppins hover:translate-x-1 transform inline-block"
-                    >
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Services */}
-            <div className="lg:col-span-1">
-              <h4 className="text-lg font-semibold mb-6 font-poppins">Layanan</h4>
-              <ul className="space-y-3">
-                {services.map((service) => (
-                  <li key={service}>
-                    <span className="text-gray-400 font-poppins">
-                      {service}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Contact Info */}
-            <div className="lg:col-span-1">
-              <h4 className="text-lg font-semibold mb-6 font-poppins">Kontak</h4>
-              <ul className="space-y-4">
-                {contactInfo.map((contact, index) => (
-                  <li key={index} className="flex items-start space-x-3">
-                    <i className={`${contact.icon} text-purple-400 mt-1 flex-shrink-0`}></i>
-                    {contact.link.startsWith('#') ? (
-                      <span className="text-gray-400 text-sm font-poppins leading-relaxed">
-                        {contact.text}
-                      </span>
-                    ) : (
-                      <a
-                        href={contact.link}
-                        target={contact.link.startsWith('http') ? '_blank' : undefined}
-                        rel={contact.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                        className="text-gray-400 hover:text-white transition-colors duration-300 text-sm font-poppins leading-relaxed"
-                      >
-                        {contact.text}
-                      </a>
-                    )}
-                  </li>
-                ))}
-              </ul>
+    <footer className="bg-[#0253EE] text-white">
+      <h2 id="footer-heading" className="sr-only">
+        Footer
+      </h2>
+      <div className="container mx-auto py-12 px-6 lg:py-16 lg:px-8">
+        <div className="pb-8 md:grid md:grid-cols-2 md:gap-8">
+          <div className="mb-8 md:mb-0">
+            <h3 className="text-2xl font-bold font-poppins text-white">
+              Aufa Dzakiy
+            </h3>
+            <p className="text-white mt-2 text-base">
+              Crafting digital solutions that make an impact.
+            </p>
+            <div className="flex space-x-6 mt-6">
+              {socialLinks.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-white transition-colors duration-300"
+                >
+                  <span className="sr-only">{item.name}</span>
+                  <item.icon className="h-6 w-6" aria-hidden="true" />
+                </a>
+              ))}
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Footer Bottom */}
-      <div className="relative z-10 py-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-            <div className="text-center md:text-left">
-              <p className="text-gray-400 text-sm font-poppins">
-                © {currentYear} Aufa Dzakiy. All rights reserved.
+          <div className="grid grid-cols-1 gap-8">
+            <div>
+              <h3 className="text-lg font-semibold text-white tracking-wider uppercase">
+                Let's Connect
+              </h3>
+              <p className="text-base text-white mt-4">
+                I'm always open to discussing new projects, creative ideas, or
+                opportunities to be part of an amazing team.
               </p>
-            </div>
-            
-            <div className="flex items-center space-x-6">
-              <a 
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors duration-300 text-sm font-poppins"
-              >
-                Privacy Policy
-              </a>
-              <a 
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors duration-300 text-sm font-poppins"
-              >
-                Terms of Service
-              </a>
-              <a 
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors duration-300 text-sm font-poppins"
-              >
-                Sitemap
-              </a>
+              
             </div>
           </div>
         </div>
+        <div className="mt-8 border-t border-gray-400 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <div className="text-base text-white">
+            &copy; {currentYear} Aufa Dzakiy. All rights reserved.
+          </div>
+          
+        </div>
       </div>
-
-
-
-      {/* Floating particles */}
-      <div className="absolute inset-0 pointer-events-none">
-        {isClient && particles.map((particle) => (
-          <div
-            key={particle.id}
-            className="absolute w-1 h-1 bg-purple-500/20 rounded-full animate-pulse"
-            style={{
-              left: particle.left,
-              top: particle.top,
-              animationDelay: particle.animationDelay,
-              animationDuration: particle.animationDuration
-            }}
-          ></div>
-        ))}
-      </div>
-
-      <style jsx>{`
-        #back-to-top {
-          transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-      `}</style>
     </footer>
   );
 }

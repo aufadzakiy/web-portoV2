@@ -54,7 +54,7 @@ const PartnersSection = () => {
   const duration = trackWidth ? Math.max(8, trackWidth / SPEED_PX_PER_SEC) : 25;
 
   return (
-        <section className="logo-section bg-white backdrop-blur-md py-6 overflow-hidden">
+    <section className="logo-section bg-white backdrop-blur-md py-6 overflow-hidden">
       <div className="slider-viewport overflow-hidden">
         <div
           className={`logo-slider ${trackWidth ? "is-ready" : ""}`}

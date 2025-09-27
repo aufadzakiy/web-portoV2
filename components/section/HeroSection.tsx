@@ -1,68 +1,132 @@
-import React, { useEffect, useRef, useState } from 'react'
-import Link from 'next/link'
+import React, { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 export default function HeroSection() {
-  const [badges, setBadges] = useState<any[]>([])
-  const [width, setWidth] = useState<number | null>(null)
-  const mounted = useRef(false)
+  const [badges, setBadges] = useState<any[]>([]);
+  const [width, setWidth] = useState<number | null>(null);
+  const mounted = useRef(false);
 
   useEffect(() => {
-    mounted.current = true
-  }, [])
+    mounted.current = true;
+  }, []);
 
   // setup responsive badge positions only on client
   useEffect(() => {
     function handleResize() {
-      setWidth(typeof window !== 'undefined' ? window.innerWidth : null)
+      setWidth(typeof window !== "undefined" ? window.innerWidth : null);
     }
-    handleResize()
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     // Deterministic badge layout per breakpoint (no randomness)
     const sources = [
-      '/flutter-icon.svg',
-      '/react-js-icon.svg',
-      '/figma-icon.svg',
-      '/tailwind-icon.svg',
-      '/laravel2.svg',
-      '/Next.js.svg',
-    ]
+      "/flutter-icon.svg",
+      "/react-js-icon.svg",
+      "/figma-icon.svg",
+      "/tailwind-icon.svg",
+      "/laravel2.svg",
+      "/Next.js.svg",
+    ];
 
     // Layout presets for breakpoints
-    const presets: Record<string, Array<{ src: string; left: string; top: string; size: number }>> = {
+    const presets: Record<
+      string,
+      Array<{ src: string; left: string; top: string; size: number }>
+    > = {
       desktop: [
-        { src: '/figma-icon.svg', left: 'calc(70% + 40px)', top: 'calc(35% + 140px)', size: 70 },
-        { src: '/Next.js.svg', left: 'calc(25% - 140px)', top: 'calc(20% + 10px)', size: 120 },
-        { src: '/laravel2.svg', left: 'calc(40% + 140px)', top: 'calc(10% - 10px)', size: 100 },
-        { src: '/flutter-icon.svg', left: 'calc(50% - 140px)', top: 'calc(82% + 10px)', size: 80 },
+        {
+          src: "/figma-icon.svg",
+          left: "calc(70% + 40px)",
+          top: "calc(35% + 140px)",
+          size: 70,
+        },
+        {
+          src: "/Next.js.svg",
+          left: "calc(25% - 140px)",
+          top: "calc(20% + 10px)",
+          size: 120,
+        },
+        {
+          src: "/laravel2.svg",
+          left: "calc(40% + 140px)",
+          top: "calc(10% - 10px)",
+          size: 100,
+        },
+        {
+          src: "/flutter-icon.svg",
+          left: "calc(50% - 140px)",
+          top: "calc(82% + 10px)",
+          size: 80,
+        },
       ],
       tablet: [
-        { src: '/js-icon.svg', left: 'calc(50% + 110px)', top: 'calc(50% + 8px)', size: 40 },
-        { src: '/react-js-icon.svg', left: 'calc(50% + 32px)', top: 'calc(50% + 110px)', size: 36 },
-        { src: '/figma-icon.svg', left: 'calc(50% - 110px)', top: 'calc(50% + 6px)', size: 34 },
-        { src: '/tailwind-icon.svg', left: 'calc(50% + 6px)', top: 'calc(50% - 110px)', size: 34 },
+        {
+          src: "/js-icon.svg",
+          left: "calc(50% + 110px)",
+          top: "calc(50% + 8px)",
+          size: 40,
+        },
+        {
+          src: "/react-js-icon.svg",
+          left: "calc(50% + 32px)",
+          top: "calc(50% + 110px)",
+          size: 36,
+        },
+        {
+          src: "/figma-icon.svg",
+          left: "calc(50% - 110px)",
+          top: "calc(50% + 6px)",
+          size: 34,
+        },
+        {
+          src: "/tailwind-icon.svg",
+          left: "calc(50% + 6px)",
+          top: "calc(50% - 110px)",
+          size: 34,
+        },
       ],
       // Use same positions as desktop to keep icons aligned between breakpoints
       mobile: [
-        { src: '/figma-icon.svg', left: 'calc(60% + 40px)', top: 'calc(15% + 140px)', size: 50 },
-        { src: '/Next.js.svg', left: 'calc(50% - 140px)', top: 'calc(20% + 10px)', size: 65 },
-        { src: '/laravel2.svg', left: 'calc(15% + 140px)', top: 'calc(20% - 10px)', size: 65 },
-        { src: '/flutter-icon.svg', left: 'calc(65% - 140px)', top: 'calc(80% + 10px)', size: 50 },
+        {
+          src: "/figma-icon.svg",
+          left: "calc(60% + 40px)",
+          top: "calc(15% + 140px)",
+          size: 50,
+        },
+        {
+          src: "/Next.js.svg",
+          left: "calc(50% - 140px)",
+          top: "calc(20% + 10px)",
+          size: 65,
+        },
+        {
+          src: "/laravel2.svg",
+          left: "calc(15% + 140px)",
+          top: "calc(20% - 10px)",
+          size: 65,
+        },
+        {
+          src: "/flutter-icon.svg",
+          left: "calc(65% - 140px)",
+          top: "calc(80% + 10px)",
+          size: 50,
+        },
       ],
-    }
+    };
 
-    const w = width || (typeof window !== 'undefined' ? window.innerWidth : 1024)
-    let chosenPreset = presets.desktop
-    if (w < 640) chosenPreset = presets.mobile
-    else if (w < 1024) chosenPreset = presets.tablet
+    const w =
+      width || (typeof window !== "undefined" ? window.innerWidth : 1024);
+    let chosenPreset = presets.desktop;
+    if (w < 640) chosenPreset = presets.mobile;
+    else if (w < 1024) chosenPreset = presets.tablet;
 
     // filter by available sources (maintain order)
-    const final = chosenPreset.filter((p) => sources.includes(p.src))
-    setBadges(final)
-  }, [width])
+    const final = chosenPreset.filter((p) => sources.includes(p.src));
+    setBadges(final);
+  }, [width]);
 
   // Scoped styles for animated gradient and blob blur
   const extraStyles = `
@@ -132,10 +196,13 @@ export default function HeroSection() {
         100% { transform: translateY(0) scale(1) rotate(0deg); }
       }
     }
-  `
+  `;
 
   return (
-  <section id="hero" className="w-full px-6 md:px-12 lg:px-24 py-24 md:py-44 lg:py-44 pb-12 lg:pb-45 relative overflow-hidden">
+    <section
+      id="hero"
+      className="w-full px-6 md:px-12 lg:px-24 py-24 md:py-44 lg:py-44 pb-12 lg:pb-45 relative overflow-hidden"
+    >
       <style jsx>{extraStyles}</style>
       {/* background image using bg-kotak.png with overlay */}
       <div
@@ -156,10 +223,11 @@ export default function HeroSection() {
           style={{
             width: 420,
             height: 420,
-            background: 'radial-gradient(closest-side, rgba(253,215,160,0.14), rgba(253,215,160,0.06))',
+            background:
+              "radial-gradient(closest-side, rgba(253,215,160,0.14), rgba(253,215,160,0.06))",
             left: -120,
             top: -80,
-            position: 'absolute',
+            position: "absolute",
           }}
         />
 
@@ -168,10 +236,11 @@ export default function HeroSection() {
           style={{
             width: 360,
             height: 360,
-            background: 'radial-gradient(closest-side, rgba(199,210,254,0.12), rgba(199,210,254,0.04))',
+            background:
+              "radial-gradient(closest-side, rgba(199,210,254,0.12), rgba(199,210,254,0.04))",
             right: -100,
             bottom: -60,
-            position: 'absolute',
+            position: "absolute",
           }}
         />
       </div>
@@ -179,13 +248,21 @@ export default function HeroSection() {
         <div className="flex flex-col-reverse lg:flex-row items-center gap-8">
           {/* Left: content ~70% */}
           <div className="w-full lg:w-[70%] text-center sm:text-left pr-0 lg:pr-4 mt-6 lg:mt-0">
-            <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight text-[#011C4F] text-left sm:text-left" style={{ textShadow: '0 1px 2px rgba(255,255,255,0.6)' }}>
+            <h1
+              className="text-4xl sm:text-5xl font-extrabold leading-tight text-[#011C4F] text-left sm:text-left"
+              style={{ textShadow: "0 1px 2px rgba(255,255,255,0.6)" }}
+            >
               Membangun Solusi Digital Melalui Pengembangan <br></br>
-              <span style={{ color: '#0253EE' }}>Full-Stack</span>
+              <span style={{ color: "#0253EE" }}>Full-Stack</span>
             </h1>
 
-            <p className="mt-6 text-black text-base sm:text-lg mx-auto lg:mx-0 text-left sm:text-left" style={{ textShadow: '0 1px 2px rgba(255,255,255,0.6)' }}>
-              Perkenalkan, saya Aufa. Saya bersemangat dalam menciptakan solusi digital yang utuh, dengan mengintegrasikan antarmuka pengguna yang intuitif dengan logika back-end yang andal dan berperforma tinggi.
+            <p
+              className="mt-6 text-black text-base sm:text-lg mx-auto lg:mx-0 text-left sm:text-left"
+              style={{ textShadow: "0 1px 2px rgba(255,255,255,0.6)" }}
+            >
+              Perkenalkan, saya Aufa. Saya bersemangat dalam menciptakan solusi
+              digital yang utuh, dengan mengintegrasikan antarmuka pengguna yang
+              intuitif dengan logika back-end yang andal dan berperforma tinggi.
             </p>
 
             {/* Buttons: mobile version should match header container width */}
@@ -234,9 +311,14 @@ export default function HeroSection() {
 
           {/* Right: image ~30% */}
           <div className="w-full lg:w-[30%] flex justify-center lg:justify-end">
-            <div className="relative" style={{ width: 'max-content' }}>
-
-              <div className="transition-transform duration-300 hover:scale-110 rounded-full" style={{ width: 'max-content', boxShadow: '0 8px 30px rgba(15,23,42,0.18)' }}>
+            <div className="relative" style={{ width: "max-content" }}>
+              <div
+                className="transition-transform duration-300 hover:scale-110 rounded-full"
+                style={{
+                  width: "max-content",
+                  boxShadow: "0 8px 30px rgba(15,23,42,0.18)",
+                }}
+              >
                 <div className="w-56 h-56 sm:w-64 sm:h-64 lg:w-96 lg:h-96 overflow-hidden rounded-full">
                   <img
                     src="/gw4.png"
@@ -248,29 +330,34 @@ export default function HeroSection() {
 
               {/* Deterministic decorative badges with frame+inner animations */}
               {badges.map((b, idx) => {
-                const frameDelay = `${(idx * 140) % 1000}ms`
-                const frameDuration = `${4800 + (idx % 3) * 400}ms`
-                const innerDelay = `${(idx * 140 + 80) % 1000}ms`
-                const innerDuration = `${3000 + (idx % 4) * 300}ms`
-                const isLaravel = b.src === '/laravel.svg'
+                const frameDelay = `${(idx * 140) % 1000}ms`;
+                const frameDuration = `${4800 + (idx % 3) * 400}ms`;
+                const innerDelay = `${(idx * 140 + 80) % 1000}ms`;
+                const innerDuration = `${3000 + (idx % 4) * 300}ms`;
+                const isLaravel = b.src === "/laravel.svg";
                 return (
                   <div
-                      key={idx}
-                      style={{
-                        position: 'absolute',
-                        left: b.left,
-                        top: b.top,
-                        width: b.size,
-                        height: b.size,
-                        transform: isLaravel ? 'translate(-50%, -50%) scale(1.05)' : 'translate(-50%, -50%)',
-                        animationDelay: frameDelay,
-                        animationDuration: frameDuration,
-                      }}
-                      className="badge-frame flex items-center justify-center"
-                    >
+                    key={idx}
+                    style={{
+                      position: "absolute",
+                      left: b.left,
+                      top: b.top,
+                      width: b.size,
+                      height: b.size,
+                      transform: isLaravel
+                        ? "translate(-50%, -50%) scale(1.05)"
+                        : "translate(-50%, -50%)",
+                      animationDelay: frameDelay,
+                      animationDuration: frameDuration,
+                    }}
+                    className="badge-frame flex items-center justify-center"
+                  >
                     <div
                       className="badge-inner"
-                      style={{ animationDelay: innerDelay, animationDuration: innerDuration }}
+                      style={{
+                        animationDelay: innerDelay,
+                        animationDuration: innerDuration,
+                      }}
                     >
                       <img
                         src={b.src}
@@ -279,12 +366,12 @@ export default function HeroSection() {
                       />
                     </div>
                   </div>
-                )
+                );
               })}
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,7 +1,13 @@
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
-import { Poppins, Montserrat, Inter, JetBrains_Mono, Orbitron } from "next/font/google";
+import {
+  Poppins,
+  Montserrat,
+  Inter,
+  JetBrains_Mono,
+  Orbitron,
+} from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 
@@ -37,7 +43,8 @@ const orbitron = Orbitron({
 
 export const metadata: Metadata = {
   title: "Portofolio Kreatif - Aufa Dzakiy",
-  description: "Portfolio website showcasing web development, mobile development, UI/UX design, and machine learning projects",
+  description:
+    "Portfolio website showcasing web development, mobile development, UI/UX design, and machine learning projects",
 };
 
 export default function RootLayout({
@@ -46,15 +53,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="id" className={`${poppins.variable} ${montserrat.variable} ${inter.variable} ${jetbrainsMono.variable} ${orbitron.variable}`}>
+    <html
+      lang="id"
+      className={`${poppins.variable} ${montserrat.variable} ${inter.variable} ${jetbrainsMono.variable} ${orbitron.variable}`}
+    >
       <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
       </head>
       <body className={`${poppins.className} antialiased`}>
         {children}
         <SpeedInsights />
         <Analytics />
-        
+
         {/* Interactive Features Script (without custom cursor) */}
         <Script id="portfolio-interactions" strategy="afterInteractive">
           {`
