@@ -2,7 +2,9 @@
 
 // Interactive Features and Animations
 export class PortfolioInteractions {
-  private handleMove: ((e: MouseEvent) => void) | null = null;
+  private handleMouseMove: ((e: MouseEvent) => void) | null = null;
+  private handleTouchStart: ((e: TouchEvent) => void) | null = null;
+  private handleTouchMove: ((e: TouchEvent) => void) | null = null;
   private hoverElements: NodeListOf<Element> | null = null;
   private mouseEnterHandler: (() => void) | null = null;
   private mouseLeaveHandler: (() => void) | null = null;
@@ -45,7 +47,7 @@ export class PortfolioInteractions {
     const activeIcons: HTMLElement[] = [];
     let iconsEnabled = true;
 
-    function spawnIcon(x: number, y: number, vx: number, vy: number) {
+    const spawnIcon = (x: number, y: number, vx: number, vy: number) => {
       if (!iconsEnabled) return;
       const img = document.createElement("img");
       img.src = iconSources[Math.floor(Math.random() * iconSources.length)];
@@ -58,8 +60,7 @@ export class PortfolioInteractions {
       img.style.transform = "translate(-50%, -50%) scale(1)";
       img.style.opacity = "1";
       img.style.zIndex = "9999";
-      img.style.transition =
-        "opacity 400ms linear, transform 600ms cubic-bezier(.2,.8,.2,1)";
+      img.style.transition = "opacity 400ms linear, transform 600ms cubic-bezier(.2,.8,.2,1)";
 
       document.body.appendChild(img);
       activeIcons.push(img);
@@ -87,39 +88,60 @@ export class PortfolioInteractions {
         }
       }
       requestAnimationFrame(animate);
-    }
+    };
 
-    this.handleMove = (e: MouseEvent) => {
+    const handlePointerMove = (x: number, y: number, type: 'move' | 'start') => {
       if (!iconsEnabled) return;
-      const x = e.clientX;
-      const y = e.clientY;
+
+      if (type === 'start') {
+        lastX = x;
+        lastY = y;
+        // Spawn a small burst on tap
+        for (let i = 0; i < 3; i++) {
+          const vx = (Math.random() - 0.5) * 4;
+          const vy = (Math.random() - 0.5) * 4 - 1;
+          spawnIcon(x, y, vx, vy);
+        }
+        return;
+      }
+
       const dx = x - lastX;
       const dy = y - lastY;
       lastX = x;
       lastY = y;
       const speed = Math.sqrt(dx * dx + dy * dy);
-      if (speed < 2) return;
+
+      if (speed < 2 && type === 'move') return;
+
       const count = Math.min(4, Math.ceil(speed / 8));
       for (let i = 0; i < count; i++) {
         const vx = -dx / (6 + Math.random() * 6) + (Math.random() - 0.5) * 2;
         const vy = -dy / (6 + Math.random() * 6) + (Math.random() - 0.5) * 2 - 1;
-        spawnIcon(
-          x + (Math.random() - 0.5) * 8,
-          y + (Math.random() - 0.5) * 8,
-          vx,
-          vy,
-        );
-      }
-      if (activeIcons.length > 60) {
-        const removeCount = activeIcons.length - 60;
-        for (let i = 0; i < removeCount; i++) {
-          const el = activeIcons.shift();
-          if (el && el.parentNode) el.parentNode.removeChild(el);
-        }
+        spawnIcon(x + (Math.random() - 0.5) * 8, y + (Math.random() - 0.5) * 8, vx, vy);
       }
     };
 
-    window.addEventListener("mousemove", this.handleMove);
+    this.handleMouseMove = (e: MouseEvent) => {
+      handlePointerMove(e.clientX, e.clientY, 'move');
+    };
+
+    this.handleTouchStart = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        const touch = e.touches[0];
+        handlePointerMove(touch.clientX, touch.clientY, 'start');
+      }
+    };
+
+    this.handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        const touch = e.touches[0];
+        handlePointerMove(touch.clientX, touch.clientY, 'move');
+      }
+    };
+
+    window.addEventListener("mousemove", this.handleMouseMove);
+    window.addEventListener("touchstart", this.handleTouchStart);
+    window.addEventListener("touchmove", this.handleTouchMove);
 
     const interactiveSelector =
       'a[href], button, [role="button"], input[type="button"], input[type="submit"], [onclick], .btn, .link, .nav-link, .tech-chip, .modern-card';
@@ -153,8 +175,14 @@ export class PortfolioInteractions {
 
   cleanupCursorEffects() {
     if (typeof window === "undefined") return;
-    if (this.handleMove) {
-      window.removeEventListener("mousemove", this.handleMove);
+    if (this.handleMouseMove) {
+      window.removeEventListener("mousemove", this.handleMouseMove);
+    }
+    if (this.handleTouchStart) {
+      window.removeEventListener("touchstart", this.handleTouchStart);
+    }
+    if (this.handleTouchMove) {
+      window.removeEventListener("touchmove", this.handleTouchMove);
     }
     if (this.hoverElements && this.mouseEnterHandler && this.mouseLeaveHandler) {
       this.hoverElements.forEach((element) => {
