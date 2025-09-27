@@ -4,7 +4,6 @@
 export class PortfolioInteractions {
   private handleMouseMove: ((e: MouseEvent) => void) | null = null;
   private handleTouchStart: ((e: TouchEvent) => void) | null = null;
-  private handleTouchMove: ((e: TouchEvent) => void) | null = null;
   private hoverElements: NodeListOf<Element> | null = null;
   private mouseEnterHandler: (() => void) | null = null;
   private mouseLeaveHandler: (() => void) | null = null;
@@ -132,16 +131,8 @@ export class PortfolioInteractions {
       }
     };
 
-    this.handleTouchMove = (e: TouchEvent) => {
-      if (e.touches.length > 0) {
-        const touch = e.touches[0];
-        handlePointerMove(touch.clientX, touch.clientY, 'move');
-      }
-    };
-
     window.addEventListener("mousemove", this.handleMouseMove);
     window.addEventListener("touchstart", this.handleTouchStart);
-    window.addEventListener("touchmove", this.handleTouchMove);
 
     const interactiveSelector =
       'a[href], button, [role="button"], input[type="button"], input[type="submit"], [onclick], .btn, .link, .nav-link, .tech-chip, .modern-card';
@@ -180,9 +171,6 @@ export class PortfolioInteractions {
     }
     if (this.handleTouchStart) {
       window.removeEventListener("touchstart", this.handleTouchStart);
-    }
-    if (this.handleTouchMove) {
-      window.removeEventListener("touchmove", this.handleTouchMove);
     }
     if (this.hoverElements && this.mouseEnterHandler && this.mouseLeaveHandler) {
       this.hoverElements.forEach((element) => {
