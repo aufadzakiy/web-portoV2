@@ -259,7 +259,7 @@ export default function HeroSection() {
               className="mt-6 text-black text-base sm:text-lg mx-auto lg:pr-1 text-left sm:text-left"
               style={{ textShadow: "0 1px 2px rgba(255,255,255,0.6)" }}
             >
-              Saya Aufa, seorang developer yang berdedikasi untuk merancang dan membangun aplikasi digital yang luar biasa. Dari antarmuka yang responsif hingga arsitektur back-end yang kokoh, saya memastikan setiap proyek tidak hanya memenuhi standar teknis tertinggi tetapi juga memberikan pengalaman pengguna yang tak terlupakan.
+              Perkenalkan, saya Aufa. Saya bersemangat dalam menciptakan solusi digital yang utuh, dengan mengintegrasikan antarmuka pengguna yang intuitif dengan logika back-end yang andal dan berperforma tinggi.
             </p>
 
             {/* Buttons: mobile version should match header container width */}

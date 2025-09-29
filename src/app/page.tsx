@@ -9,6 +9,7 @@ import LogoSlider from "../../components/section/LogoSlider";
 import TabsSection from "../../components/section/TabsSection";
 import CtaBannerSection from "../../components/section/CtaBanner";
 import ProjectSection from "../../components/section/ProjectSection";
+import Link from "next/link";
 
 export default function Home() {
   const [backVisible, setBackVisible] = useState(false);
@@ -40,16 +41,14 @@ export default function Home() {
 
       <Footer />
 
-      {/* WhatsApp Button (moves up when Back-to-top appears) */}
-      <a
-        href="https://wa.me/6283872839074"
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`fixed right-6 w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 z-50 animate-bounce ${backVisible ? "bottom-20" : "bottom-6"}`}
-        aria-label="WhatsApp"
+      {/* Contact Button (moves up when Back-to-top appears) */}
+      <Link
+        href="/contact"
+        className={`fixed right-6 w-14 h-14 bg-blue-600 hover:bg-blue-700 text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 z-50 animate-bounce ${backVisible ? "bottom-20" : "bottom-6"}`}
+        aria-label="Hubungi Saya"
       >
-        <i className="fab fa-whatsapp text-2xl"></i>
-      </a>
+        <i className="fas fa-envelope text-2xl"></i>
+      </Link>
 
       {/* Back to Top Button (appears below WhatsApp) */}
       <button

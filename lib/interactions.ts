@@ -135,7 +135,7 @@ export class PortfolioInteractions {
     window.addEventListener("touchstart", this.handleTouchStart);
 
     const interactiveSelector =
-      'a[href], button, [role="button"], input[type="button"], input[type="submit"], [onclick], .btn, .link, .nav-link, .tech-chip, .modern-card';
+      'a[href], button, [role="button"], input[type="button"], input[type="submit"], [onclick], .btn, .link, .nav-link, .tech-chip, .modern-card, Link';
     this.hoverElements = document.querySelectorAll(interactiveSelector);
 
     let hoveredCount = 0;
