@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import CareerTimeline from '../../../components/CareerTimeline';
 import CareerIntro from '../../../components/CareerIntro';
+import LogoSlider from "../../../components/section/LogoSlider";
 import Footer from '../../../components/footer';
 import Header from '../../../components/header';
 import CtaBannerSection from '../../../components/section/CtaBanner';
@@ -30,6 +31,7 @@ export default function AboutPage() {
     <main>
       <Header />
       <CareerIntro />
+      <LogoSlider />
       <CareerTimeline />
       <CtaBannerSection />
       <Footer />

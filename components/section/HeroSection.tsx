@@ -201,14 +201,14 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="w-full px-6 md:px-12 lg:px-24 py-24 md:py-44 lg:py-44 pb-12 lg:pb-45 relative overflow-hidden"
+      className="w-full px-6 md:px-12 lg:px-24 py-24 md:py-44 lg:py-30 pb-12 lg:pb-45 relative overflow-hidden bg-gradient-to-b from-[#DEE9FF] via-white to-white"
     >
       <style jsx>{extraStyles}</style>
-      {/* background image using bg-kotak.png with overlay */}
-      <div
+      {/* background image using bg-kotak.png with overlay - removed for gradient */}
+      {/* <div
         aria-hidden="true"
         className="absolute inset-0 -z-10 bg-white md:bg-[url('/bg-kotak.png')] bg-no-repeat bg-cover bg-center"
-      />
+      /> */}
       {/* subtle dark overlay to keep text readable over image
       <div
         aria-hidden="true"
@@ -249,15 +249,13 @@ export default function HeroSection() {
           {/* Left: content ~70% */}
           <div className="w-full lg:w-[70%] text-center sm:text-left pr-0 lg:pr-4 mt-6 lg:mt-0">
             <h1
-              className="text-4xl sm:text-5xl font-extrabold leading-tight text-[#011C4F] text-left sm:text-left"
-              style={{ textShadow: "0 1px 2px rgba(255,255,255,0.6)" }}
+              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-[#011C4F] text-left"
             >
-              Mengubah Ide Kompleks Menjadi <span style={{ color: "#0253EE" }}> Solusi Digital yang Elegan</span>
+              Mengubah Ide Kompleks Menjadi <span className="bg-gradient-to-r from-[#0253EE] to-[#011C4F] bg-clip-text text-transparent">Solusi Digital yang Elegan</span>
             </h1>
 
             <p
-              className="mt-6 text-black text-base sm:text-lg mx-auto lg:pr-1 text-left sm:text-left"
-              style={{ textShadow: "0 1px 2px rgba(255,255,255,0.6)" }}
+              className="mt-6 text-gray-600 font-light text-base sm:text-lg mx-auto lg:pr-1 text-left sm:text-left"
             >
               Perkenalkan, saya Aufa. Saya bersemangat dalam menciptakan solusi digital yang utuh, dengan mengintegrasikan antarmuka pengguna yang intuitif dengan logika back-end yang andal dan berperforma tinggi.
             </p>

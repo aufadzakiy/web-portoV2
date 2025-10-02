@@ -28,19 +28,23 @@ export default function Header() {
 
   // Varian animasi untuk menu mobile
   const mobileMenuVariants: Variants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0, scale: 0.8 },
     visible: {
       opacity: 1,
+      scale: 1,
       transition: { 
-        duration: 0.3,
+        duration: 0.2,
+        ease: "easeOut",
         when: "beforeChildren",
-        staggerChildren: 0.1
+        staggerChildren: 0.05
       },
     },
     exit: {
       opacity: 0,
+      scale: 0.8,
       transition: { 
-        duration: 0.2,
+        duration: 0.15,
+        ease: "easeIn",
         when: "afterChildren"
       },
     },
@@ -48,16 +52,18 @@ export default function Header() {
 
   // Varian animasi untuk menu items
   const menuItemVariants: Variants = {
-    hidden: { x: -50, opacity: 0 },
+    hidden: { opacity: 0, scale: 0.8, y: 20 },
     visible: {
-      x: 0,
       opacity: 1,
-      transition: { type: "tween" as const, stiffness: 100, damping: 15 },
+      scale: 1,
+      y: 0,
+      transition: { type: "spring" as const, stiffness: 300, damping: 25, duration: 0.3 },
     },
     exit: {
-      x: -50,
       opacity: 0,
-      transition: { duration: 0.2 },
+      scale: 0.8,
+      y: 20,
+      transition: { duration: 0.15 },
     },
   };
 
@@ -92,29 +98,129 @@ export default function Header() {
             </Link>
 
             {/* Navigasi Desktop */}
-            <div className="hidden lg:flex items-center gap-2">
-              <ul className="flex items-center gap-2">
+            <div className="hidden lg:flex items-center gap-1">
+              <ul className="flex items-center gap-1">
                 {/* 3. Ganti Nav Links dengan Link dan hapus onClick */}
-                {navLinks.map((link) => (
-                  <li key={link.href}>
+                {navLinks.map((link, index) => (
+                  <motion.li 
+                    key={link.href}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                  >
                     <Link
                       href={link.href}
-                      className="relative px-4 py-2 text-slate-900 font-medium transition-colors hover:text-[#0253EE] after:content-[''] after:absolute after:bottom-1 after:left-1/2 after:w-0 after:h-0.5 after:bg-indigo-500 after:transition-all after:duration-300 after:-translate-x-1/2 hover:after:w-[calc(100%-2rem)]"
+                      className="group relative px-5 py-2.5 text-slate-800 font-semibold text-sm tracking-wide transition-all duration-300 hover:text-[#0253EE] block"
                     >
-                      {link.label}
+                      {/* Animated background gradient */}
+                      <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#0253EE]/0 via-[#0253EE]/5 to-[#0253EE]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      
+                      {/* Glowing effect */}
+                      <span className="absolute inset-0 rounded-xl bg-[#0253EE]/5 scale-0 group-hover:scale-100 transition-transform duration-500 blur-sm" />
+                      
+                      {/* Text */}
+                      <span className="relative z-10">{link.label}</span>
+                      
+                      {/* Modern underline with gradient */}
+                      <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#0253EE] via-indigo-500 to-[#0253EE] group-hover:w-[calc(100%-2.5rem)] transition-all duration-300 rounded-full" />
+                      
+                      {/* Dot indicator */}
+                      <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#0253EE] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg shadow-[#0253EE]/50" />
                     </Link>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
 
-              <div className="h-6 w-px bg-slate-400 mx-4"></div>
+              {/* Elegant divider with gradient */}
+              <div className="relative h-8 w-px mx-6 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-300 to-transparent" />
+                <motion.div 
+                  className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0253EE] to-transparent"
+                  animate={{ y: ["-100%", "100%"] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                />
+              </div>
 
               <div className="flex items-center gap-4">
+                {/* Premium CTA Button */}
                 <Link
                   href="/contact"
-                  className="px-5 py-2.5 text-sm font-semibold text-white bg-[#0253EE] rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75 transition-all duration-300"
+                  className="group relative"
                 >
-                  Hubungi Saya
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="relative overflow-hidden rounded-xl"
+                  >
+                    {/* Gradient background */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#0253EE] via-indigo-600 to-[#0253EE] bg-[length:200%_100%] group-hover:bg-[length:100%_100%] transition-all duration-500" />
+                    
+                    {/* Animated shine effect */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12"
+                      animate={{
+                        x: ["-200%", "200%"],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        repeatDelay: 3,
+                        ease: "easeInOut"
+                      }}
+                    />
+                    
+                    {/* Glow effect */}
+                    <div className="absolute -inset-1 bg-gradient-to-r from-[#0253EE] via-indigo-500 to-[#0253EE] rounded-xl opacity-0 group-hover:opacity-50 blur-lg transition-opacity duration-500" />
+                    
+                    {/* Button content */}
+                    <div className="relative px-6 py-3 flex items-center gap-2">
+                      {/* Icon */}
+                      <motion.svg
+                        className="w-4 h-4 text-white"
+                        animate={{ 
+                          rotate: [0, 5, 0, -5, 0],
+                        }}
+                        transition={{ 
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2.5}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </motion.svg>
+                      
+                      <span className="text-sm font-bold text-white tracking-wide">
+                        Hubungi Saya
+                      </span>
+                      
+                      {/* Arrow */}
+                      <motion.svg
+                        className="w-4 h-4 text-white"
+                        animate={{ x: [0, 3, 0] }}
+                        transition={{ 
+                          duration: 1.5,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2.5}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                      </motion.svg>
+                    </div>
+                  </motion.div>
+                  
+                  {/* Premium tooltip */}
+                  <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-slate-900 text-white text-xs font-medium rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+                    Let's work together! 🚀
+                    <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-slate-900 rotate-45" />
+                  </div>
                 </Link>
               </div>
             </div>
@@ -135,19 +241,19 @@ export default function Header() {
                     className="block w-9 h-1 bg-current rounded-full origin-center"
                     variants={topBarVariants}
                     animate={isMenuOpen ? "open" : "closed"}
-                    transition={{ type: "tween", duration: 0.18 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   />
                   <motion.span
                     className="block w-5 h-1 bg-current rounded-full origin-center"
                     variants={middleBarVariants}
                     animate={isMenuOpen ? "open" : "closed"}
-                    transition={{ type: "tween", duration: 0.18 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   />
                   <motion.span
                     className="block w-7 h-1 bg-current rounded-full origin-center"
                     variants={bottomBarVariants}
                     animate={isMenuOpen ? "open" : "closed"}
-                    transition={{ type: "tween", duration: 0.18 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   />
                 </span>
               </button>
@@ -171,6 +277,7 @@ export default function Header() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.2, ease: "easeInOut" }}
               className="absolute inset-0 bg-gradient-to-br from-[#011C4F]/98 via-[#0253EE]/95 to-[#011C4F]/98 backdrop-blur-2xl"
             />
             
@@ -182,7 +289,7 @@ export default function Header() {
                   rotate: [0, 90, 0],
                 }}
                 transition={{
-                  duration: 20,
+                  duration: 15,
                   repeat: Infinity,
                   ease: "linear"
                 }}
@@ -194,7 +301,7 @@ export default function Header() {
                   rotate: [90, 0, 90],
                 }}
                 transition={{
-                  duration: 15,
+                  duration: 12,
                   repeat: Infinity,
                   ease: "linear"
                 }}
@@ -233,19 +340,19 @@ export default function Header() {
                       className="block w-9 h-1 bg-current rounded-full origin-center"
                       variants={topBarVariants}
                       animate={"open"}
-                      transition={{ type: "tween", duration: 0.18 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     />
                     <motion.span
                       className="block w-5 h-1 bg-current rounded-full origin-center"
                       variants={middleBarVariants}
                       animate={"open"}
-                      transition={{ type: "tween", duration: 0.18 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     />
                     <motion.span
                       className="block w-7 h-1 bg-current rounded-full origin-center"
                       variants={bottomBarVariants}
                       animate={"open"}
-                      transition={{ type: "tween", duration: 0.18 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     />
                   </span>
                 </motion.button>
@@ -347,7 +454,7 @@ export default function Header() {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.6 }}
+                transition={{ delay: 0.3 }}
                 className="py-6 text-center"
               >
                 <p className="text-xs text-white/40">
