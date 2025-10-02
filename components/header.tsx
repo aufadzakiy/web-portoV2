@@ -374,14 +374,37 @@ export default function Header() {
                       >
                         <motion.div
                           whileTap={{ scale: 0.98 }}
-                          className="relative flex items-center gap-4 px-6 py-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-200"
+                          className="relative flex items-center justify-between gap-4 px-6 py-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-300 overflow-hidden group-hover:bg-white/10 group-hover:border-white/20"
                         >
-                          
+                          {/* Subtle gradient sweep on hover */}
+                          <motion.div
+                            className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0"
+                            initial={{ x: "-100%" }}
+                            whileHover={{ x: "100%" }}
+                            transition={{ duration: 0.8, ease: "easeInOut" }}
+                          />
                           
                           {/* Link text */}
-                          <span className="text-2xl font-semibold text-white">
+                          <span className="text-2xl font-semibold text-white relative z-10">
                             {link.label}
                           </span>
+
+                          {/* Simple elegant arrow icon */}
+                          <motion.div
+                            className="relative flex items-center justify-end w-10 h-10 transition-colors duration-300"
+                            whileHover={{ x: 3 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                          >
+                            <svg 
+                              className="w-5 h-5 text-white/60 group-hover:text-white transition-colors duration-300" 
+                              fill="none" 
+                              viewBox="0 0 24 24" 
+                              stroke="currentColor" 
+                              strokeWidth={2.5}
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                          </motion.div>
                         </motion.div>
                       </Link>
                     </motion.div>
