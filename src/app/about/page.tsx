@@ -7,7 +7,7 @@ import LogoSlider from "../../../components/section/LogoSlider";
 import Footer from '../../../components/footer';
 import Header from '../../../components/header';
 import CtaBannerSection from '../../../components/section/CtaBanner';
-import { PortfolioInteractions } from '../../../lib/interactions';
+import { initializeInteractions } from '../../../lib/interactions';
 import Link from 'next/link';
 
 export default function AboutPage() {
@@ -21,10 +21,8 @@ export default function AboutPage() {
   }, []);
 
   useEffect(() => {
-    const interactions = new PortfolioInteractions();
-    return () => {
-      interactions.destroy();
-    };
+    const cleanup = initializeInteractions();
+    return cleanup;
   }, []);
 
   return (
