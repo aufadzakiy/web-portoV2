@@ -10,6 +10,7 @@ const navLinks = [
   { href: "/#hero", label: "Home" },
   { href: "/#skills", label: "Skills" },
   { href: "/#projects", label: "Projects" },
+  { href: "/about", label: "About" },
 ];
 
 export default function Header() {
@@ -27,16 +28,36 @@ export default function Header() {
 
   // Varian animasi untuk menu mobile
   const mobileMenuVariants: Variants = {
-    hidden: { y: "-100%", opacity: 0 },
+    hidden: { opacity: 0 },
     visible: {
-      y: 0,
       opacity: 1,
-      transition: { type: "tween" as const, ease: "easeInOut" as const },
+      transition: { 
+        duration: 0.3,
+        when: "beforeChildren",
+        staggerChildren: 0.1
+      },
     },
     exit: {
-      y: "-100%",
       opacity: 0,
-      transition: { type: "tween" as const, ease: "easeInOut" as const },
+      transition: { 
+        duration: 0.2,
+        when: "afterChildren"
+      },
+    },
+  };
+
+  // Varian animasi untuk menu items
+  const menuItemVariants: Variants = {
+    hidden: { x: -50, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { type: "tween" as const, stiffness: 100, damping: 15 },
+    },
+    exit: {
+      x: -50,
+      opacity: 0,
+      transition: { duration: 0.2 },
     },
   };
 
@@ -143,20 +164,64 @@ export default function Header() {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="fixed inset-0 z-[100] bg-white/80 backdrop-blur-lg lg:hidden"
+            className="fixed inset-0 z-[100] lg:hidden"
           >
-            <div className="container mx-auto px-6 h-full flex flex-col">
+            {/* Background with blur effect */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 bg-gradient-to-br from-[#011C4F]/98 via-[#0253EE]/95 to-[#011C4F]/98 backdrop-blur-2xl"
+            />
+            
+            {/* Animated background patterns */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <motion.div
+                animate={{
+                  scale: [1, 1.2, 1],
+                  rotate: [0, 90, 0],
+                }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+                className="absolute -top-1/2 -right-1/2 w-full h-full bg-gradient-to-br from-[#0253EE]/15 to-white/10 rounded-full blur-3xl"
+              />
+              <motion.div
+                animate={{
+                  scale: [1.2, 1, 1.2],
+                  rotate: [90, 0, 90],
+                }}
+                transition={{
+                  duration: 15,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+                className="absolute -bottom-1/2 -left-1/2 w-full h-full bg-gradient-to-tr from-[#011C4F]/20 to-[#0253EE]/15 rounded-full blur-3xl"
+              />
+            </div>
+
+            <div className="relative container mx-auto px-6 h-full flex flex-col">
+              {/* Header */}
               <div className="flex items-center justify-between h-20">
                 <Link
                   href="/#hero"
                   onClick={() => setIsMenuOpen(false)}
-                  className="flex items-center"
+                  className="flex items-center relative z-10"
                 >
-                  <Image src="/favicon.svg" alt="Aufa Dzakiy Logo" width={50} height={50} />
+                  <motion.div
+                    whileHover={{ scale: 1.05, rotate: 5 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Image src="/favicon-white.svg" alt="Aufa Dzakiy Logo" width={50} height={50} />
+                  </motion.div>
                 </Link>
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
                   onClick={() => setIsMenuOpen(false)}
-                  className="p-2 text-[#0253EE]"
+                  className="p-2 text-white relative z-10"
                   aria-label="Close menu"
                 >
                   <span
@@ -183,38 +248,112 @@ export default function Header() {
                       transition={{ type: "tween", duration: 0.18 }}
                     />
                   </span>
-                </button>
+                </motion.button>
               </div>
 
-              <div className="flex-grow flex flex-col items-center justify-center gap-6 text-center">
-                {/* 4. Ganti juga di Mobile Menu */}
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className="text-3xl font-semibold text-black"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
+              {/* Menu Content */}
+              <div className="flex-grow flex flex-col justify-center relative z-10">
+                <nav className="space-y-3">
+                  {navLinks.map((link, index) => (
+                    <motion.div
+                      key={link.href}
+                      variants={menuItemVariants}
+                      custom={index}
+                    >
+                      <Link
+                        href={link.href}
+                        onClick={() => setIsMenuOpen(false)}
+                        className="group block"
+                      >
+                        <motion.div
+                          whileTap={{ scale: 0.98 }}
+                          className="relative flex items-center gap-4 px-6 py-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-200"
+                        >
+                          
+                          
+                          {/* Link text */}
+                          <span className="text-2xl font-semibold text-white">
+                            {link.label}
+                          </span>
+                        </motion.div>
+                      </Link>
+                    </motion.div>
+                  ))}
+                </nav>
 
-                <div className="mt-8 flex justify-center" aria-hidden="true">
-                  <div className="border-t border-black w-max">
-                    {/* Invisible text (kept in DOM to size the divider to exactly match the button width) */}
-                    <span className="px-8 text-transparent select-none text-lg font-semibold">Hubungi Saya</span>
+                {/* CTA Section */}
+                <motion.div
+                  variants={menuItemVariants}
+                  className="mt-12 space-y-4"
+                >
+                  {/* Decorative line */}
+                  <div className="flex items-center gap-4">
+                    <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                    <span className="text-xs font-medium text-white/60 uppercase tracking-wider">Let's Connect</span>
+                    <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
                   </div>
-                </div>
-                <div className="mt-2 flex flex-col items-center gap-6">
+
+                  {/* Contact Button */}
                   <Link
                     href="/contact"
                     onClick={() => setIsMenuOpen(false)}
-                    className="px-8 py-3 text-lg font-semibold text-white bg-[#0253EE] rounded-full shadow-md hover:bg-indigo-700 transition-all duration-300"
+                    className="block"
                   >
-                    Hubungi Saya
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="relative group overflow-hidden rounded-2xl"
+                    >
+                      {/* Gradient background */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-[#0253EE] via-white to-[#0253EE] opacity-100 group-hover:opacity-90 transition-opacity" />
+                      
+                      {/* Animated shine effect */}
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-[#011C4F]/30 to-transparent"
+                        animate={{
+                          x: ["-100%", "100%"],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          repeatDelay: 1,
+                          ease: "linear"
+                        }}
+                      />
+
+                      {/* Button content */}
+                      <div className="relative px-8 py-5 flex items-center justify-center gap-3">
+                        <span className="text-lg font-bold text-[#011C4F] drop-shadow-sm">
+                          Hubungi Saya
+                        </span>
+                        <motion.svg
+                          className="w-5 h-5 text-[#011C4F]"
+                          animate={{ x: [0, 5, 0] }}
+                          transition={{ duration: 1.5, repeat: Infinity }}
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2.5}
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </motion.svg>
+                      </div>
+                    </motion.div>
                   </Link>
-                </div>
+                </motion.div>
               </div>
+
+              {/* Footer info */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+                className="py-6 text-center"
+              >
+                <p className="text-xs text-white/40">
+                  © 2025 Aufa Dzakiy. Crafted with passion
+                </p>
+              </motion.div>
             </div>
           </motion.div>
         )}

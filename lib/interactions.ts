@@ -220,11 +220,11 @@ export class PortfolioInteractions {
     if (backToTopBtn) {
       window.addEventListener("scroll", () => {
         if (window.scrollY > 300) {
-          backToTopBtn.classList.add("opacity-100", "visible");
-          backToTopBtn.classList.remove("opacity-0", "invisible");
+          backToTopBtn.classList.add("opacity-100", "visible", "bottom-6");
+          backToTopBtn.classList.remove("opacity-0", "invisible", "bottom-0");
         } else {
-          backToTopBtn.classList.remove("opacity-100", "visible");
-          backToTopBtn.classList.add("opacity-0", "invisible");
+          backToTopBtn.classList.remove("opacity-100", "visible", "bottom-6");
+          backToTopBtn.classList.add("opacity-0", "invisible", "bottom-0");
         }
       });
     }
