@@ -6,7 +6,7 @@ import DynamicTypingText from './DynamicTypingText';
 
 const CareerIntro: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center items-center px-6 py-0 pt-2 pb-0 lg:pt-0 lg:pb-0 lg:px-8 lg:py-18 overflow-hidden bg-gradient-to-b from-[#DEE9FF] via-white to-white">
+    <section className="relative min-h-screen flex flex-col justify-center items-start px-6 py-0 pt-0 pb-0 lg:pt-0 lg:pb-0 lg:px-8 lg:py-18 overflow-hidden bg-gradient-to-b from-[#DEE9FF] via-white to-white">
       {/* Simple Background Element */}
       <div className="absolute inset-0 z-0 opacity-30">
         <motion.div 
