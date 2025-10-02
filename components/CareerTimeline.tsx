@@ -103,7 +103,7 @@ const TimelineNode = ({ data, side, nodeRef, showMobileDot }: { data: any, side:
             {/* Dot Penanda Mobile - Positioned relative to this card */}
             {showMobileDot && (
                 <div className="absolute left-[-34px] top-[66px] lg:hidden">
-                    <div className="h-5 w-5 rounded-full bg-slate-300 border-4 border-white shadow-md transition-colors duration-500 dot-marker" />
+                    <div className="h-5 w-5 rounded-full bg-slate-300 border-4 border-white shadow-md dot-marker" />
                 </div>
             )}
             
@@ -237,17 +237,28 @@ const CareerTimeline = () => {
     }, []);
 
     useEffect(() => {
+        let rafId: number | null = null;
+        
         const handleScroll = () => {
-            if (timelineRef.current) {
-                const { top, height } = timelineRef.current.getBoundingClientRect();
-                const scrollAmount = window.innerHeight / 2 - top;
-                const percentage = (scrollAmount / height) * 100;
-                const clampedPercentage = Math.max(0, Math.min(100, percentage));
-                setTimelineHeight(`${clampedPercentage}%`);
+            // Batalkan animasi frame sebelumnya jika ada
+            if (rafId !== null) {
+                cancelAnimationFrame(rafId);
             }
+            
+            // Gunakan requestAnimationFrame untuk smooth animation
+            rafId = requestAnimationFrame(() => {
+                if (timelineRef.current) {
+                    const { top, height } = timelineRef.current.getBoundingClientRect();
+                    const scrollAmount = window.innerHeight / 2 - top;
+                    const percentage = (scrollAmount / height) * 100;
+                    const clampedPercentage = Math.max(0, Math.min(100, percentage));
+                    setTimelineHeight(`${clampedPercentage}%`);
+                }
+            });
         };
 
-        window.addEventListener('scroll', handleScroll);
+        // Gunakan passive listener untuk performa lebih baik
+        window.addEventListener('scroll', handleScroll, { passive: true });
         handleScroll();
 
         // Menjalankan ulang kalkulasi posisi setelah delay untuk memastikan
@@ -264,6 +275,9 @@ const CareerTimeline = () => {
 
         return () => {
             window.removeEventListener('scroll', handleScroll);
+            if (rafId !== null) {
+                cancelAnimationFrame(rafId);
+            }
             clearTimeout(positionTimer);
         };
     }, []);
@@ -319,7 +333,7 @@ const CareerTimeline = () => {
                     {/* Garis Timeline Utama & Animasi Pengisi */}
                     <div className="absolute left-0 lg:left-1/2 -translate-x-1/2 w-1 bg-slate-200 h-full rounded-full"></div>
                     <div
-                        className="absolute top-0 left-0 lg:left-1/2 -translate-x-1/2 w-1 bg-[#0253EE] transition-all duration-300 ease-out rounded-full"
+                        className="absolute top-0 left-0 lg:left-1/2 -translate-x-1/2 w-1 bg-[#0253EE] rounded-full"
                         style={{ height: timelineHeight }}
                     ></div>
                     
@@ -365,7 +379,7 @@ const CareerTimeline = () => {
                             return (
                                 <div
                                     key={`dot-${idx}`}
-                                    className={`absolute left-1/2 -translate-x-1/2 -translate-y-1/2 h-5 w-5 rounded-full ${dotColorClass} border-4 border-white shadow-md z-10 transition-colors duration-500`}
+                                    className={`absolute left-1/2 -translate-x-1/2 -translate-y-1/2 h-5 w-5 rounded-full ${dotColorClass} border-4 border-white shadow-md z-10`}
                                     style={{ top: `${relativeTop}px` }}
                                 />
                             );
