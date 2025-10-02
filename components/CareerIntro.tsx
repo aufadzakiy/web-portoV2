@@ -6,7 +6,7 @@ import DynamicTypingText from './DynamicTypingText';
 
 const CareerIntro: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center items-start px-6 py-0 pt-0 pb-0 lg:pt-0 lg:pb-0 lg:px-8 lg:py-18 overflow-hidden bg-gradient-to-b from-[#DEE9FF] via-white to-white">
+    <section className="relative flex flex-col justify-center items-start px-6 py-24 md:py-44 lg:py-30 pb-12 lg:pb-45 lg:px-8 overflow-hidden bg-gradient-to-b from-[#DEE9FF] via-white to-white">
       {/* Simple Background Element */}
       <div className="absolute inset-0 z-0 opacity-30">
         <motion.div 
@@ -30,7 +30,7 @@ const CareerIntro: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-[50px] sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-[#011C4F] pt-0 lg:pt-6 text-left lg:text-center"
+          className="text-[50px] sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-[#011C4F] text-left lg:text-center"
         >
           Perjalanan Saya: <br className="hidden lg:block" />
           Dari <span className="bg-gradient-to-r from-[#0253EE] to-[#011C4F] bg-clip-text text-transparent">Mahasiswa</span> hingga <span className="bg-gradient-to-r from-[#0253EE] to-[#011C4F] bg-clip-text text-transparent">Developer</span>
