@@ -42,11 +42,71 @@ const orbitron = Orbitron({
 });
 
 export const metadata: Metadata = {
-  title: "Aufa Dzakiy - Full-Stack Developer & UI/UX Designer",
+  metadataBase: new URL('https://aufadzakiy.vercel.app'),
+  title: "Aufa Dzakiy - Full-Stack Developer & UI/UX Designer | Web Developer Indonesia",
   description:
-    "Portofolio Aufa Dzakiy, seorang Full-Stack Developer yang berfokus pada pembuatan aplikasi web dan mobile modern dengan penekanan kuat pada UI/UX. Terbuka untuk proyek baru dan peluang karir.",
+    "Portofolio Aufa Dzakiy, Full-Stack Developer Indonesia dengan keahlian React, Next.js, Flutter, Laravel, dan UI/UX Design. Berpengalaman dalam pengembangan aplikasi web dan mobile modern. Tersedia untuk proyek freelance dan peluang karir.",
+  keywords: [
+    "Full-Stack Developer Indonesia",
+    "Web Developer Indonesia", 
+    "UI/UX Designer Indonesia",
+    "React Developer",
+    "Next.js Developer",
+    "Flutter Developer",
+    "Laravel Developer",
+    "Frontend Developer Indonesia",
+    "Backend Developer Indonesia",
+    "Mobile App Developer",
+    "Aufa Dzakiy",
+    "Portfolio Developer",
+    "Freelance Developer Indonesia"
+  ],
+  authors: [{ name: "Aufa Dzakiy" }],
+  creator: "Aufa Dzakiy",
+  publisher: "Aufa Dzakiy",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "id_ID",
+    url: "https://aufadzakiy.vercel.app",
+    siteName: "Aufa Dzakiy Portfolio",
+    title: "Aufa Dzakiy - Full-Stack Developer & UI/UX Designer Indonesia",
+    description: "Full-Stack Developer Indonesia dengan keahlian React, Next.js, Flutter, Laravel, dan UI/UX Design. Berpengalaman dalam pengembangan aplikasi web dan mobile modern.",
+    images: [
+      {
+        url: "/gw3.png",
+        width: 1200,
+        height: 630,
+        alt: "Aufa Dzakiy - Full-Stack Developer Indonesia",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aufa Dzakiy - Full-Stack Developer & UI/UX Designer Indonesia",
+    description: "Full-Stack Developer Indonesia dengan keahlian React, Next.js, Flutter, Laravel, dan UI/UX Design.",
+    images: ["/gw3.png"],
+  },
+  alternates: {
+    canonical: "https://aufadzakiy.vercel.app",
+  },
   icons: {
     icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
+  verification: {
+    google: "google0340d445fd787cfd.html", // Ganti dengan kode verifikasi Google Search Console
   },
 };
 
@@ -70,6 +130,63 @@ export default function RootLayout({
         {children}
         <SpeedInsights />
         <Analytics />
+
+        {/* Structured Data for SEO */}
+        <Script
+          id="structured-data"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Aufa Dzakiy",
+              jobTitle: "Full-Stack Developer & UI/UX Designer",
+              description: "Full-Stack Developer Indonesia dengan keahlian React, Next.js, Flutter, Laravel, dan UI/UX Design",
+              url: "https://aufadzakiy.vercel.app",
+              image: "https://aufadzakiy.vercel.app/gw3.png",
+              sameAs: [
+                "https://github.com/aufadzakiy",
+                "https://linkedin.com/in/aufadzakiy",
+                "https://instagram.com/aufadzakiy"
+              ],
+              address: {
+                "@type": "PostalAddress",
+                addressCountry: "ID",
+                addressLocality: "Indonesia"
+              },
+              knowsAbout: [
+                "JavaScript",
+                "TypeScript", 
+                "React",
+                "Next.js",
+                "Flutter",
+                "Laravel",
+                "PHP",
+                "Python",
+                "UI/UX Design",
+                "Web Development",
+                "Mobile Development"
+              ],
+              hasOccupation: {
+                "@type": "Occupation",
+                name: "Full-Stack Developer",
+                occupationLocation: {
+                  "@type": "Country",
+                  name: "Indonesia"
+                },
+                skills: [
+                  "React Development",
+                  "Next.js Development", 
+                  "Flutter Development",
+                  "Laravel Development",
+                  "UI/UX Design",
+                  "Frontend Development",
+                  "Backend Development"
+                ]
+              }
+            })
+          }}
+        />
 
         {/* Interactive Features Script (without custom cursor) */}
         <Script id="portfolio-interactions" strategy="afterInteractive">
