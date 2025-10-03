@@ -6,6 +6,7 @@ import { Phone, CircleHelp, ChevronDown } from "lucide-react";
 import Header from "../../../components/header";
 import Footer from "../../../components/footer";
 import { initializeInteractions } from "../../../lib/interactions";
+import { trackContactFormSubmit } from "../../../lib/analytics";
 
 import Modal from "../../../components/modal";
 
@@ -50,6 +51,10 @@ const ContactPageContent = () => {
     emailjs.send(serviceID, templateID, formData as any, userID).then(
       (response) => {
         console.log("SUCCESS!", response.status, response.text);
+        
+        // Track contact form submission in Google Analytics
+        trackContactFormSubmit();
+        
         setFormData({ firstName: "", lastName: "", email: "", message: "" });
         setModalState({
           isOpen: true,
