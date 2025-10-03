@@ -106,7 +106,7 @@ export const metadata: Metadata = {
     apple: "/favicon.svg",
   },
   verification: {
-    google: "google0340d445fd787cfd.html", // Ganti dengan kode verifikasi Google Search Console
+    google: "google0340d445fd787cfd", // Google Search Console verification
   },
 };
 
