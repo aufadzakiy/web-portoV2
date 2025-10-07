@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://aufadzakiy.vercel.app/sitemap.xml',
+    sitemap: 'https://aufa-space.vercel.app/sitemap.xml',
   }
 }

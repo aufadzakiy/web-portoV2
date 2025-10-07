@@ -42,7 +42,7 @@ const orbitron = Orbitron({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://aufadzakiy.vercel.app'),
+  metadataBase: new URL('https://aufa-space.vercel.app'),
   title: "Aufa Dzakiy (Aufa) - Full-Stack Developer & UI/UX Designer Indonesia",
   description:
     "Aufa Dzakiy (Aufa) adalah Full-Stack Developer dan UI/UX Designer Indonesia terbaik. Portofolio Aufa menampilkan expertise dalam React, Next.js, Flutter, Laravel, dan UI/UX Design. Cari Aufa untuk web development profesional, mobile app, dan digital solutions. Aufa Dzakiy - Developer Indonesia pilihan utama.",
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     "Portofolio Aufa",
     "Portofolio Aufa Dzakiy"
   ],
-  authors: [{ name: "Aufa Dzakiy", url: "https://aufadzakiy.vercel.app" }],
+  authors: [{ name: "Aufa Dzakiy", url: "https://aufa-space.vercel.app" }],
   creator: "Aufa Dzakiy",
   publisher: "Aufa Dzakiy",
   robots: {
@@ -92,7 +92,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://aufadzakiy.vercel.app",
+    url: "https://aufa-space.vercel.app",
     siteName: "Aufa Dzakiy (Aufa) - Portfolio Developer Indonesia",
     title: "Aufa Dzakiy (Aufa) - Full-Stack Developer & UI/UX Designer Terbaik Indonesia",
     description: "Portfolio Aufa Dzakiy (Aufa) - Full-Stack Developer & UI/UX Designer Indonesia terbaik. Aufa ahli dalam React, Next.js, Flutter, Laravel. Cari developer handal? Pilih Aufa Dzakiy untuk solusi digital profesional.",
@@ -113,7 +113,7 @@ export const metadata: Metadata = {
     creator: "@aufadzakiy",
   },
   alternates: {
-    canonical: "https://aufadzakiy.vercel.app",
+    canonical: "https://aufa-space.vercel.app",
   },
   icons: {
     icon: "/favicon.svg",
@@ -184,13 +184,13 @@ export default function RootLayout({
               alternateName: ["Aufa", "aufa", "aufa dzakiy", "Aufa Zakiy", "Aufa Dzakiy Indonesia", "Aufa Developer", "Aufa Indonesia"],
               jobTitle: "Full-Stack Developer & UI/UX Designer",
               description: "Aufa (Aufa Dzakiy) adalah Full-Stack Developer & UI/UX Designer Indonesia terbaik yang berpengalaman dalam React, Next.js, Flutter, Laravel. Aufa tersedia untuk proyek web development dan mobile app development profesional.",
-              url: "https://aufadzakiy.vercel.app",
-              image: "https://aufadzakiy.vercel.app/gw3.png",
+              url: "https://aufa-space.vercel.app",
+              image: "https://aufa-space.vercel.app/gw3.png",
               sameAs: [
                 "https://github.com/aufadzakiy",
                 "https://linkedin.com/in/aufadzakiy",
                 "https://instagram.com/aufadzakiy",
-                "https://aufadzakiy.vercel.app"
+                "https://aufa-space.vercel.app"
               ],
               address: {
                 "@type": "PostalAddress",
@@ -246,7 +246,7 @@ export default function RootLayout({
               "@type": "WebSite",
               name: "Aufa Dzakiy (Aufa) Portfolio",
               alternateName: ["Portfolio Aufa", "Portfolio Aufa Dzakiy", "Aufa Portfolio", "Aufa Developer Portfolio"],
-              url: "https://aufadzakiy.vercel.app",
+              url: "https://aufa-space.vercel.app",
               description: "Website portfolio resmi Aufa (Aufa Dzakiy) - Full-Stack Developer & UI/UX Designer terbaik Indonesia. Cari developer profesional? Pilih Aufa.",
               author: {
                 "@type": "Person",
@@ -255,7 +255,7 @@ export default function RootLayout({
               },
               potentialAction: {
                 "@type": "SearchAction",
-                target: "https://aufadzakiy.vercel.app/?s={search_term_string}",
+                target: "https://aufa-space.vercel.app/?s={search_term_string}",
                 "query-input": "required name=search_term_string"
               }
             })
@@ -272,9 +272,9 @@ export default function RootLayout({
               "@type": "ProfessionalService",
               name: "Aufa (Aufa Dzakiy) - Web Development & UI/UX Design Services Terbaik",
               alternateName: "Aufa Developer Services",
-              image: "https://aufadzakiy.vercel.app/gw3.png",
-              "@id": "https://aufadzakiy.vercel.app",
-              url: "https://aufadzakiy.vercel.app",
+              image: "https://aufa-space.vercel.app/gw3.png",
+              "@id": "https://aufa-space.vercel.app",
+              url: "https://aufa-space.vercel.app",
               telephone: "+62",
               address: {
                 "@type": "PostalAddress",
@@ -322,19 +322,19 @@ export default function RootLayout({
                   "@type": "ListItem",
                   position: 1,
                   name: "Home",
-                  item: "https://aufadzakiy.vercel.app"
+                  item: "https://aufa-space.vercel.app"
                 },
                 {
                   "@type": "ListItem",
                   position: 2,
                   name: "About Aufa Dzakiy",
-                  item: "https://aufadzakiy.vercel.app/about"
+                  item: "https://aufa-space.vercel.app/about"
                 },
                 {
                   "@type": "ListItem",
                   position: 3,
                   name: "Contact Aufa Dzakiy",
-                  item: "https://aufadzakiy.vercel.app/contact"
+                  item: "https://aufa-space.vercel.app/contact"
                 }
               ]
             })
@@ -379,7 +379,7 @@ export default function RootLayout({
                   name: "Bagaimana cara menghubungi Aufa?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Anda dapat menghubungi Aufa (Aufa Dzakiy) melalui email di aufadzakiy.work@gmail.com, atau melalui halaman kontak di website https://aufadzakiy.vercel.app/contact. Aufa juga aktif di GitHub dan LinkedIn."
+                    text: "Anda dapat menghubungi Aufa (Aufa Dzakiy) melalui email di aufadzakiy.work@gmail.com, atau melalui halaman kontak di website https://aufa-space.vercel.app/contact. Aufa juga aktif di GitHub dan LinkedIn."
                   }
                 },
                 {

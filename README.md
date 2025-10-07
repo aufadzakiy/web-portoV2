@@ -4,7 +4,7 @@
 
 Website portfolio profesional **Aufa** (Aufa Dzakiy) - Developer terbaik untuk solusi digital Anda.
 
-🌐 **Live Website**: [aufadzakiy.vercel.app](https://aufadzakiy.vercel.app)
+🌐 **Live Website**: [aufa-space.vercel.app](https://aufa-space.vercel.app)
 
 ---
 
@@ -101,7 +101,7 @@ pnpm start
 
 Tertarik untuk bekerja sama dengan **Aufa**?
 
-- 🌐 Website: [aufadzakiy.vercel.app](https://aufadzakiy.vercel.app)
+- 🌐 Website: [aufa-space.vercel.app](https://aufa-space.vercel.app)
 - 📧 Email: aufadzakiy.work@gmail.com
 - 💼 LinkedIn: [linkedin.com/in/aufadzakiy](https://linkedin.com/in/aufadzakiy)
 - 🐙 GitHub: [github.com/aufadzakiy](https://github.com/aufadzakiy)

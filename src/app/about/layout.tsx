@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Tentang Aufa (Aufa Dzakiy) - Full-Stack Developer Terbaik Indonesia",
     description: "Kenali Aufa (Aufa Dzakiy) lebih dekat. Full-Stack Developer Indonesia terbaik dengan pengalaman React, Next.js, Flutter, Laravel.",
-    url: "https://aufadzakiy.vercel.app/about",
+    url: "https://aufa-space.vercel.app/about",
     images: [
       {
         url: "/gw3.png",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     images: ["/gw3.png"],
   },
   alternates: {
-    canonical: "https://aufadzakiy.vercel.app/about",
+    canonical: "https://aufa-space.vercel.app/about",
   },
 };
 

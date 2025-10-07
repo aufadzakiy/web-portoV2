@@ -50,7 +50,7 @@ Halo! Saya **Aufa Dzakiy** (biasa dipanggil **Aufa**), seorang Full-Stack Develo
 
 ## 📫 Hubungi Aufa
 
-- 🌐 **Website**: [aufadzakiy.vercel.app](https://aufadzakiy.vercel.app)
+- 🌐 **Website**: [aufa-space.vercel.app](https://aufa-space.vercel.app)
 - 📧 **Email**: aufadzakiy.work@gmail.com
 - 💼 **LinkedIn**: [linkedin.com/in/aufadzakiy](https://linkedin.com/in/aufadzakiy)
 - 🐙 **GitHub**: [github.com/aufadzakiy](https://github.com/aufadzakiy)
@@ -102,6 +102,6 @@ Punya ide project? Butuh developer handal? **Aufa** siap membantu mewujudkan vis
 ---
 
 **Aufa Dzakiy** | Full-Stack Developer & UI/UX Designer  
-🇮🇩 Indonesia | 🌐 [aufadzakiy.vercel.app](https://aufadzakiy.vercel.app)
+🇮🇩 Indonesia | 🌐 [aufa-space.vercel.app](https://aufa-space.vercel.app)
 
 *Developer Profesional Pilihan Terbaik untuk Project Digital Anda*
