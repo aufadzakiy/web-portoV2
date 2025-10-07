@@ -43,10 +43,16 @@ const orbitron = Orbitron({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://aufadzakiy.vercel.app'),
-  title: "Aufa Dzakiy - Full-Stack Developer & UI/UX Designer | Web Developer Indonesia",
+  title: "Aufa Dzakiy - Full-Stack Developer & UI/UX Designer | Portofolio Profesional",
   description:
-    "Portofolio Aufa Dzakiy, Full-Stack Developer Indonesia dengan keahlian React, Next.js, Flutter, Laravel, dan UI/UX Design. Berpengalaman dalam pengembangan aplikasi web dan mobile modern. Tersedia untuk proyek freelance dan peluang karir.",
+    "Aufa Dzakiy adalah Full-Stack Developer dan UI/UX Designer Indonesia yang berpengalaman. Portofolio Aufa Dzakiy menampilkan keahlian dalam React, Next.js, Flutter, Laravel, dan desain UI/UX. Hubungi Aufa Dzakiy untuk proyek web development, mobile app, dan desain digital.",
   keywords: [
+    "Aufa Dzakiy",
+    "aufa dzakiy",
+    "Aufa Dzakiy Portfolio",
+    "Aufa Dzakiy Developer",
+    "Aufa Dzakiy Full Stack",
+    "Aufa Dzakiy UI/UX",
     "Full-Stack Developer Indonesia",
     "Web Developer Indonesia", 
     "UI/UX Designer Indonesia",
@@ -57,9 +63,9 @@ export const metadata: Metadata = {
     "Frontend Developer Indonesia",
     "Backend Developer Indonesia",
     "Mobile App Developer",
-    "Aufa Dzakiy",
     "Portfolio Developer",
-    "Freelance Developer Indonesia"
+    "Freelance Developer Indonesia",
+    "Portofolio Aufa Dzakiy"
   ],
   authors: [{ name: "Aufa Dzakiy" }],
   creator: "Aufa Dzakiy",
@@ -79,23 +85,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "id_ID",
     url: "https://aufadzakiy.vercel.app",
-    siteName: "Aufa Dzakiy Portfolio",
+    siteName: "Aufa Dzakiy - Portfolio Profesional",
     title: "Aufa Dzakiy - Full-Stack Developer & UI/UX Designer Indonesia",
-    description: "Full-Stack Developer Indonesia dengan keahlian React, Next.js, Flutter, Laravel, dan UI/UX Design. Berpengalaman dalam pengembangan aplikasi web dan mobile modern.",
+    description: "Portofolio profesional Aufa Dzakiy. Full-Stack Developer Indonesia dengan keahlian React, Next.js, Flutter, Laravel, dan UI/UX Design. Berpengalaman dalam pengembangan aplikasi web dan mobile modern.",
     images: [
       {
         url: "/gw3.png",
         width: 1200,
         height: 630,
-        alt: "Aufa Dzakiy - Full-Stack Developer Indonesia",
+        alt: "Aufa Dzakiy - Full-Stack Developer & UI/UX Designer Indonesia",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Aufa Dzakiy - Full-Stack Developer & UI/UX Designer Indonesia",
-    description: "Full-Stack Developer Indonesia dengan keahlian React, Next.js, Flutter, Laravel, dan UI/UX Design.",
+    description: "Portofolio Aufa Dzakiy - Full-Stack Developer Indonesia dengan keahlian React, Next.js, Flutter, Laravel, dan UI/UX Design.",
     images: ["/gw3.png"],
+    creator: "@aufadzakiy",
   },
   alternates: {
     canonical: "https://aufadzakiy.vercel.app",
@@ -125,6 +132,14 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         />
+        <link rel="author" href="/humans.txt" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="author" content="Aufa Dzakiy" />
+        <meta name="geo.region" content="ID" />
+        <meta name="geo.placename" content="Indonesia" />
+        <meta name="theme-color" content="#0253EE" />
+        <link rel="me" href="https://github.com/aufadzakiy" />
+        <link rel="me" href="https://linkedin.com/in/aufadzakiy" />
         
         {/* Google Analytics */}
         <Script
@@ -158,14 +173,16 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Aufa Dzakiy",
+              alternateName: ["aufa dzakiy", "Aufa Zakiy", "Aufa Dzakiy Indonesia"],
               jobTitle: "Full-Stack Developer & UI/UX Designer",
-              description: "Full-Stack Developer Indonesia dengan keahlian React, Next.js, Flutter, Laravel, dan UI/UX Design",
+              description: "Aufa Dzakiy adalah Full-Stack Developer Indonesia yang berpengalaman dalam React, Next.js, Flutter, Laravel, dan UI/UX Design. Aufa Dzakiy tersedia untuk proyek web development dan mobile app development.",
               url: "https://aufadzakiy.vercel.app",
               image: "https://aufadzakiy.vercel.app/gw3.png",
               sameAs: [
                 "https://github.com/aufadzakiy",
                 "https://linkedin.com/in/aufadzakiy",
-                "https://instagram.com/aufadzakiy"
+                "https://instagram.com/aufadzakiy",
+                "https://aufadzakiy.vercel.app"
               ],
               address: {
                 "@type": "PostalAddress",
@@ -183,7 +200,8 @@ export default function RootLayout({
                 "Python",
                 "UI/UX Design",
                 "Web Development",
-                "Mobile Development"
+                "Mobile Development",
+                "Full Stack Development"
               ],
               hasOccupation: {
                 "@type": "Occupation",
@@ -201,7 +219,154 @@ export default function RootLayout({
                   "Frontend Development",
                   "Backend Development"
                 ]
+              },
+              worksFor: {
+                "@type": "Organization",
+                name: "Freelance"
               }
+            })
+          }}
+        />
+
+        {/* Website Structured Data */}
+        <Script
+          id="website-data"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Aufa Dzakiy Portfolio",
+              alternateName: "Portfolio Aufa Dzakiy",
+              url: "https://aufadzakiy.vercel.app",
+              description: "Website portofolio resmi Aufa Dzakiy - Full-Stack Developer dan UI/UX Designer Indonesia",
+              author: {
+                "@type": "Person",
+                name: "Aufa Dzakiy"
+              },
+              potentialAction: {
+                "@type": "SearchAction",
+                target: "https://aufadzakiy.vercel.app/?s={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            })
+          }}
+        />
+
+        {/* Professional Service Structured Data */}
+        <Script
+          id="professional-service"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ProfessionalService",
+              name: "Aufa Dzakiy - Web Development & UI/UX Design Services",
+              image: "https://aufadzakiy.vercel.app/gw3.png",
+              "@id": "https://aufadzakiy.vercel.app",
+              url: "https://aufadzakiy.vercel.app",
+              telephone: "+62",
+              address: {
+                "@type": "PostalAddress",
+                addressCountry: "ID"
+              },
+              geo: {
+                "@type": "GeoCoordinates",
+                addressCountry: "Indonesia"
+              },
+              openingHoursSpecification: {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+                ],
+                opens: "00:00",
+                closes: "23:59"
+              },
+              priceRange: "$$"
+            })
+          }}
+        />
+
+        {/* Breadcrumb Structured Data */}
+        <Script
+          id="breadcrumb"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://aufadzakiy.vercel.app"
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "About Aufa Dzakiy",
+                  item: "https://aufadzakiy.vercel.app/about"
+                },
+                {
+                  "@type": "ListItem",
+                  position: 3,
+                  name: "Contact Aufa Dzakiy",
+                  item: "https://aufadzakiy.vercel.app/contact"
+                }
+              ]
+            })
+          }}
+        />
+
+        {/* FAQ Structured Data */}
+        <Script
+          id="faq"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: [
+                {
+                  "@type": "Question",
+                  name: "Siapa Aufa Dzakiy?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Aufa Dzakiy adalah Full-Stack Developer dan UI/UX Designer Indonesia yang berpengalaman dalam React, Next.js, Flutter, Laravel, dan desain UI/UX. Aufa Dzakiy tersedia untuk proyek web development, mobile app development, dan konsultasi teknologi."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  name: "Apa keahlian Aufa Dzakiy?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Aufa Dzakiy memiliki keahlian dalam Full-Stack Development menggunakan React, Next.js, TypeScript, Flutter, Laravel, PHP, dan UI/UX Design dengan Figma. Aufa Dzakiy juga berpengalaman dalam database MySQL, PostgreSQL, dan deployment dengan Vercel."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  name: "Bagaimana cara menghubungi Aufa Dzakiy?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Anda dapat menghubungi Aufa Dzakiy melalui email di aufadzakiy@gmail.com, atau melalui halaman kontak di website https://aufadzakiy.vercel.app/contact. Aufa Dzakiy juga aktif di GitHub dan LinkedIn."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  name: "Apakah Aufa Dzakiy tersedia untuk freelance?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Ya, Aufa Dzakiy tersedia untuk proyek freelance termasuk web development, mobile app development, UI/UX design, dan konsultasi teknologi. Hubungi Aufa Dzakiy untuk diskusi lebih lanjut tentang proyek Anda."
+                  }
+                }
+              ]
             })
           }}
         />

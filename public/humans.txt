@@ -1,0 +1,14 @@
+/* TEAM */
+Developer: Aufa Dzakiy
+Site: https://aufadzakiy.vercel.app
+Location: Indonesia
+
+/* THANKS */
+Thanks to everyone who has supported this journey
+
+/* SITE */
+Last update: 2025/10/07
+Language: Indonesian / English
+Doctype: HTML5
+IDE: Visual Studio Code
+Technologies: Next.js, React, TypeScript, Tailwind CSS

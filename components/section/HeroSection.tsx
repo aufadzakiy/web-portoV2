@@ -248,16 +248,19 @@ export default function HeroSection() {
         <div className="flex flex-col-reverse lg:flex-row items-center gap-8">
           {/* Left: content ~70% */}
           <div className="w-full lg:w-[70%] text-center sm:text-left pr-0 lg:pr-4 mt-6 lg:mt-0">
-            <h1
+            {/* Hidden H1 for SEO - contains main keyword */}
+            <h1 className="sr-only">Aufa Dzakiy - Full-Stack Developer & UI/UX Designer Indonesia</h1>
+            
+            <h2
               className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-[#011C4F] text-left"
             >
               Mengubah Ide Kompleks Menjadi <span className="bg-gradient-to-r from-[#0253EE] to-[#011C4F] bg-clip-text text-transparent">Solusi Digital yang Elegan</span>
-            </h1>
+            </h2>
 
             <p
               className="mt-6 text-gray-600 font-light text-base sm:text-lg mx-auto lg:pr-1 text-left sm:text-left"
             >
-              Perkenalkan, saya Aufa. Saya bersemangat dalam menciptakan solusi digital yang utuh, dengan mengintegrasikan antarmuka pengguna yang intuitif dengan logika back-end yang andal dan berperforma tinggi.
+              Perkenalkan, saya <strong>Aufa Dzakiy</strong>. Saya bersemangat dalam menciptakan solusi digital yang utuh, dengan mengintegrasikan antarmuka pengguna yang intuitif dengan logika back-end yang andal dan berperforma tinggi.
             </p>
 
             {/* Buttons: mobile version should match header container width */}

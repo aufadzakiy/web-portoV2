@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Tentang Saya - Aufa Dzakiy | Full-Stack Developer Indonesia",
-  description: "Pelajari lebih lanjut tentang perjalanan karir Aufa Dzakiy sebagai Full-Stack Developer Indonesia. Pengalaman, keahlian teknologi, dan dedikasi dalam pengembangan web dan mobile.",
+  title: "Tentang Aufa Dzakiy - Full-Stack Developer & UI/UX Designer Indonesia",
+  description: "Kenali Aufa Dzakiy lebih dekat. Aufa Dzakiy adalah Full-Stack Developer Indonesia dengan pengalaman dalam React, Next.js, Flutter, Laravel, dan UI/UX Design. Pelajari perjalanan karir dan keahlian teknologi Aufa Dzakiy.",
   keywords: [
     "Aufa Dzakiy",
+    "aufa dzakiy",
+    "Tentang Aufa Dzakiy",
+    "Profil Aufa Dzakiy",
     "Full-Stack Developer Indonesia", 
     "Web Developer Indonesia",
     "UI/UX Designer Indonesia",
@@ -14,11 +17,12 @@ export const metadata: Metadata = {
     "Laravel Developer",
     "Portfolio Developer Indonesia",
     "Tentang Developer",
-    "Karir Developer Indonesia"
+    "Karir Developer Indonesia",
+    "Biodata Aufa Dzakiy"
   ],
   openGraph: {
-    title: "Tentang Saya - Aufa Dzakiy | Full-Stack Developer Indonesia",
-    description: "Pelajari lebih lanjut tentang perjalanan karir Aufa Dzakiy sebagai Full-Stack Developer Indonesia. Pengalaman, keahlian teknologi, dan dedikasi dalam pengembangan web dan mobile.",
+    title: "Tentang Aufa Dzakiy - Full-Stack Developer & UI/UX Designer Indonesia",
+    description: "Kenali Aufa Dzakiy lebih dekat. Full-Stack Developer Indonesia dengan pengalaman dalam React, Next.js, Flutter, Laravel, dan UI/UX Design.",
     url: "https://aufadzakiy.vercel.app/about",
     images: [
       {
@@ -31,8 +35,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tentang Saya - Aufa Dzakiy | Full-Stack Developer Indonesia",
-    description: "Pelajari lebih lanjut tentang perjalanan karir Aufa Dzakiy sebagai Full-Stack Developer Indonesia.",
+    title: "Tentang Aufa Dzakiy - Full-Stack Developer & UI/UX Designer Indonesia",
+    description: "Kenali Aufa Dzakiy lebih dekat. Full-Stack Developer Indonesia dengan pengalaman dalam React, Next.js, Flutter, Laravel, dan UI/UX Design.",
     images: ["/gw3.png"],
   },
   alternates: {

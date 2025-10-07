@@ -122,14 +122,14 @@ const TimelineNode = ({ data, side, nodeRef, showMobileDot }: { data: any, side:
                     <p className="text-sm font-medium text-gray-400 mt-1">{data.duration}</p>
                 </div>
 
-                <div className={`relative pt-2 border-slate-200/80 border-l-2 lg:border-l-0`}>
-                    <div className={`hidden lg:block absolute top-0 bottom-0 ${isLeft ? 'right-[-2.8]' : 'left-[-2.8]'} w-1 bg-slate-200/80 rounded-full`} />
+                <div className={`relative pt-2 border-slate-200/80 border-l-2 ${isLeft ? 'lg:border-l-0 lg:border-r-0' : 'lg:border-l-0 lg:border-r-0'}`}>
+                    <div className={`hidden lg:block absolute top-0 bottom-0 ${isLeft ? 'right-[-2px]' : 'left-[-2px]'} w-1 bg-slate-200/80 rounded-full`} />
 
                     {data.roles.map((role: any, roleIndex: number) => (
                         <div key={roleIndex} className={`mb-4 last:mb-0 relative ${isLeft ? 'lg:pr-8 lg:pl-0' : 'lg:pl-8'} pl-8`}>
                             
                             <div className={`absolute top-1.5 w-3 h-3 rounded-full bg-slate-300 ${
-                                isLeft ? 'lg:left-auto lg:right-[-6.9]' : 'lg:-left-[7px]'
+                                isLeft ? 'lg:left-auto lg:right-[-6px]' : 'lg:-left-[6px]'
                             } -left-[7px]`}></div>
 
                             <h4 className="font-semibold text-gray-800 text-lg">{role.title}</h4>
