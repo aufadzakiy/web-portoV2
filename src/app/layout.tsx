@@ -121,7 +121,7 @@ export const metadata: Metadata = {
     apple: "/favicon.svg",
   },
   verification: {
-    google: ["google0340d445fd787cfd", "xQ1We4v_Jk6shSPawACgtlpzd8aUWTTwgu2P_YgSzYI"], // Google Search Console verification - multiple methods
+    google: ["googlec741a9c484c158c2", "xQ1We4v_Jk6shSPawACgtlpzd8aUWTTwgu2P_YgSzYI"], // Google Search Console verification - HTML file + meta tag
   },
 };
 
