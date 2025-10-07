@@ -102,7 +102,7 @@ pnpm start
 Tertarik untuk bekerja sama dengan **Aufa**?
 
 - 🌐 Website: [aufadzakiy.vercel.app](https://aufadzakiy.vercel.app)
-- 📧 Email: aufadzakiy@gmail.com
+- 📧 Email: aufadzakiy.work@gmail.com
 - 💼 LinkedIn: [linkedin.com/in/aufadzakiy](https://linkedin.com/in/aufadzakiy)
 - 🐙 GitHub: [github.com/aufadzakiy](https://github.com/aufadzakiy)
 

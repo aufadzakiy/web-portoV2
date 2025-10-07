@@ -22,7 +22,7 @@ Hubungi **Aufa Dzakiy** untuk:
 - Freelance Opportunities
 
 Website: https://aufadzakiy.vercel.app
-Email: aufadzakiy@gmail.com
+Email: aufadzakiy.work@gmail.com
 GitHub: https://github.com/aufadzakiy
 LinkedIn: https://linkedin.com/in/aufadzakiy
 

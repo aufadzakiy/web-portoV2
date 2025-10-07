@@ -379,7 +379,7 @@ export default function RootLayout({
                   name: "Bagaimana cara menghubungi Aufa?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Anda dapat menghubungi Aufa (Aufa Dzakiy) melalui email di aufadzakiy@gmail.com, atau melalui halaman kontak di website https://aufadzakiy.vercel.app/contact. Aufa juga aktif di GitHub dan LinkedIn."
+                    text: "Anda dapat menghubungi Aufa (Aufa Dzakiy) melalui email di aufadzakiy.work@gmail.com, atau melalui halaman kontak di website https://aufadzakiy.vercel.app/contact. Aufa juga aktif di GitHub dan LinkedIn."
                   }
                 },
                 {

@@ -51,7 +51,7 @@ Halo! Saya **Aufa Dzakiy** (biasa dipanggil **Aufa**), seorang Full-Stack Develo
 ## 📫 Hubungi Aufa
 
 - 🌐 **Website**: [aufadzakiy.vercel.app](https://aufadzakiy.vercel.app)
-- 📧 **Email**: aufadzakiy@gmail.com
+- 📧 **Email**: aufadzakiy.work@gmail.com
 - 💼 **LinkedIn**: [linkedin.com/in/aufadzakiy](https://linkedin.com/in/aufadzakiy)
 - 🐙 **GitHub**: [github.com/aufadzakiy](https://github.com/aufadzakiy)
 - 📸 **Instagram**: [@aufadzakiy](https://instagram.com/aufadzakiy)

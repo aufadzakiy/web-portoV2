@@ -25,7 +25,7 @@ const socialLinks = [
   },
   {
     name: "Email",
-    href: "mailto:aufadzakiy@gmail.com",
+    href: "mailto:aufadzakiy.work@gmail.com",
     icon: (props: React.SVGProps<SVGSVGElement>) => (
       <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
         <title>Email</title>
@@ -66,7 +66,7 @@ export default function Footer() {
             <h4 className="text-lg font-semibold text-white mb-5">Kontak</h4>
             <ul className="space-y-3">
               <li>
-                <a href="mailto:aufadzakiy@gmail.com" className="text-white/80 hover:text-white transition-colors duration-300 flex items-center">
+                <a href="mailto:aufadzakiy.work@gmail.com" className="text-white/80 hover:text-white transition-colors duration-300 flex items-center">
                   <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
