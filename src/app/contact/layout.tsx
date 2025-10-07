@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Hubungi Aufa Dzakiy - Full-Stack Developer Indonesia",
-  description: "Hubungi Aufa Dzakiy untuk diskusi proyek web development, mobile app development, UI/UX design, atau peluang kolaborasi. Aufa Dzakiy siap membantu mewujudkan solusi digital Anda.",
+  title: "Hubungi Aufa (Aufa Dzakiy) - Full-Stack Developer Terbaik Indonesia",
+  description: "Hubungi Aufa (Aufa Dzakiy) untuk web development, mobile app development, UI/UX design. Aufa developer profesional terbaik siap membantu mewujudkan solusi digital Anda. Kontak Aufa Dzakiy sekarang.",
   keywords: [
+    "Kontak Aufa",
+    "Hubungi Aufa",
     "Kontak Aufa Dzakiy",
     "Hubungi Aufa Dzakiy",
+    "aufa",
+    "aufa dzakiy",
     "aufa dzakiy contact",
+    "Email Aufa",
+    "Email Aufa Dzakiy",
     "Hubungi Developer Indonesia",
     "Full-Stack Developer Freelance",
     "Konsultasi Web Development",
@@ -14,12 +20,11 @@ export const metadata: Metadata = {
     "Developer untuk Hire",
     "React Developer Indonesia",
     "Flutter Developer Indonesia",
-    "Freelance Developer",
-    "Email Aufa Dzakiy"
+    "Freelance Developer Terbaik"
   ],
   openGraph: {
-    title: "Hubungi Aufa Dzakiy - Full-Stack Developer Indonesia",
-    description: "Hubungi Aufa Dzakiy untuk diskusi proyek web development, mobile app development, UI/UX design, atau peluang kolaborasi.",
+    title: "Hubungi Aufa (Aufa Dzakiy) - Full-Stack Developer Indonesia",
+    description: "Hubungi Aufa untuk web development, mobile app development, UI/UX design. Developer profesional terbaik untuk solusi digital Anda.",
     url: "https://aufadzakiy.vercel.app/contact",
     images: [
       {
@@ -32,8 +37,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hubungi Aufa Dzakiy - Full-Stack Developer Indonesia",
-    description: "Hubungi Aufa Dzakiy untuk diskusi proyek web development, mobile app development, UI/UX design, atau peluang kolaborasi.",
+    title: "Hubungi Aufa (Aufa Dzakiy) - Full-Stack Developer Indonesia",
+    description: "Hubungi Aufa untuk web development, mobile app, UI/UX design. Developer profesional siap membantu.",
     images: ["/gw3.png"],
   },
   alternates: {

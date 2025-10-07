@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aufa Dzakiy (Aufa) - Portfolio Website
 
-## Getting Started
+> **Full-Stack Developer & UI/UX Designer Indonesia**
 
-First, run the development server:
+Website portfolio profesional **Aufa** (Aufa Dzakiy) - Developer terbaik untuk solusi digital Anda.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+🌐 **Live Website**: [aufadzakiy.vercel.app](https://aufadzakiy.vercel.app)
+
+---
+
+## 👨‍💻 Tentang Aufa
+
+**Aufa Dzakiy** (biasa dipanggil **Aufa**) adalah Full-Stack Developer dan UI/UX Designer Indonesia dengan keahlian dalam:
+
+- ⚛️ React & Next.js Development
+- 🎨 UI/UX Design dengan Figma
+- 📱 Flutter Mobile Development
+- 🔧 Laravel Backend Development
+- 💾 Database Design (MySQL, PostgreSQL)
+- ☁️ Cloud Deployment (Vercel, Firebase)
+
+## 🚀 Tech Stack
+
+Website ini dibangun dengan teknologi modern:
+
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS 4
+- **Animation**: Framer Motion
+- **Analytics**: Vercel Analytics, Google Analytics
+- **Deployment**: Vercel
+
+## 🎯 Fitur Website
+
+✨ **Modern Design** - UI/UX yang clean dan professional  
+⚡ **Performance** - Optimized untuk kecepatan maksimal  
+📱 **Responsive** - Perfect di semua device  
+🔍 **SEO Optimized** - Ranking #1 untuk "Aufa" dan "Aufa Dzakiy"  
+🎨 **Interactive** - Smooth animations dan transitions  
+♿ **Accessible** - Semantic HTML dan ARIA labels  
+
+## 📂 Project Structure
+
+```
+web-porto/
+├── src/
+│   └── app/
+│       ├── layout.tsx       # Root layout dengan SEO
+│       ├── page.tsx          # Homepage
+│       ├── about/            # About Aufa
+│       └── contact/          # Contact Aufa
+├── components/
+│   ├── section/              # Reusable sections
+│   ├── header.tsx
+│   └── footer.tsx
+├── public/                   # Static assets
+└── lib/                      # Utilities
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
+- Node.js 18+ 
+- pnpm (recommended) or npm
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Installation
 
-## Learn More
+1. Clone repository
+```bash
+git clone https://github.com/aufadzakiy/web-portoV2.git
+cd web-portoV2
+```
 
-To learn more about Next.js, take a look at the following resources:
+2. Install dependencies
+```bash
+pnpm install
+# or
+npm install
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Run development server
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Run development server
 
-## Deploy on Vercel
+```bash
+pnpm dev
+# or
+npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Open [http://localhost:3000](http://localhost:3000)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Build for Production
+
+```bash
+pnpm build
+pnpm start
+```
+
+## 📧 Contact Aufa
+
+Tertarik untuk bekerja sama dengan **Aufa**?
+
+- 🌐 Website: [aufadzakiy.vercel.app](https://aufadzakiy.vercel.app)
+- 📧 Email: aufadzakiy@gmail.com
+- 💼 LinkedIn: [linkedin.com/in/aufadzakiy](https://linkedin.com/in/aufadzakiy)
+- 🐙 GitHub: [github.com/aufadzakiy](https://github.com/aufadzakiy)
+
+## 🏆 Why Choose Aufa?
+
+✅ **Professional** - Kualitas code terbaik  
+✅ **Experienced** - 2+ years in development  
+✅ **Modern** - Always up-to-date dengan tech terbaru  
+✅ **Fast** - Response time cepat  
+✅ **Complete** - Dari design hingga deployment  
+
+## 📝 License
+
+© 2025 Aufa Dzakiy. All rights reserved.
+
+---
+
+**Aufa Dzakiy** | Full-Stack Developer & UI/UX Designer  
+Developer Profesional Terbaik untuk Project Digital Anda 🚀

@@ -26,7 +26,7 @@ const CareerIntro: React.FC = () => {
       {/* Main Content */}
       <div className="relative z-10 max-w-4xl mx-auto space-y-8 lg:space-y-12">
         {/* Hidden H1 for SEO */}
-        <h1 className="sr-only">Tentang Aufa Dzakiy - Perjalanan Karir Full-Stack Developer Indonesia</h1>
+        <h1 className="sr-only">Tentang Aufa | Aufa Dzakiy - Perjalanan Karir Full-Stack Developer Terbaik Indonesia</h1>
         
         {/* Main Heading */}
         <motion.h2 
@@ -35,8 +35,8 @@ const CareerIntro: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-[50px] sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-[#011C4F] text-left lg:text-center"
         >
-          Perjalanan <strong>Aufa Dzakiy</strong>: <br className="hidden lg:block" />
-          Dari <span className="bg-gradient-to-r from-[#0253EE] to-[#011C4F] bg-clip-text text-transparent">Mahasiswa</span> hingga <span className="bg-gradient-to-r from-[#0253EE] to-[#011C4F] bg-clip-text text-transparent">Developer</span>
+          Perjalanan <br className="hidden lg:block" />
+          Dari <span className="bg-gradient-to-r from-[#0253EE] to-[#011C4F] bg-clip-text text-transparent">Mahasiswa</span> hingga <span className="bg-gradient-to-r from-[#0253EE] to-[#011C4F] bg-clip-text text-transparent">Developer Profesional</span>
         </motion.h2>
 
         {/* Static Text for Mobile */}

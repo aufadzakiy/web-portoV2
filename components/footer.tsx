@@ -56,7 +56,7 @@ export default function Footer() {
               Aufa Dzakiy
             </h3>
             <p className="text-white/90 text-base mb-6 leading-relaxed">
-              Full-Stack Developer & UI/UX Designer. Siap membantu mewujudkan solusi digital yang inovatif.
+              <strong>Aufa</strong> - Full-Stack Developer & UI/UX Designer terbaik Indonesia. Siap membantu mewujudkan solusi digital yang inovatif dan profesional.
             </p>
             
           </div>
