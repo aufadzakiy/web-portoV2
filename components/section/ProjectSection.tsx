@@ -111,7 +111,7 @@ const ProjectSection = () => {
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
     >
-      <div className="container mx-auto max-w-[1600px] px-8 md:px-12 lg:px-8">
+      <div className="container mx-auto max-w-[1550px] px-8 md:px-12 lg:px-11">
         <div className="bg-white rounded-3xl p-8 md:p-12 lg:p-16 pb-24 md:pb-28 overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-[450px]">
           {/* Left Section - Dynamic Text Content */}

@@ -4,7 +4,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative w-full bg-slate-800 min-h-screen overflow-visible"
+      className="relative w-full bg-slate-800 overflow-visible"
     >
       {/* Gradient overlay layer with rounded bottom */}
       <div 
@@ -15,9 +15,9 @@ export default function HeroSection() {
       />
 
       {/* Main content container */}
-      <div className="relative z-10 container mx-auto max-w-[1550px] px-8 md:px-12 lg:px-18 py-16 md:py-20 lg:py-24 min-h-screen flex flex-col justify-between">
+      <div className="relative z-10 container mx-auto max-w-[1550px] px-8 md:px-12 lg:px-18 py-32 md:py-40 lg:py-43 flex flex-col justify-center">
         {/* Top Section - Main Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 pt-8 md:pt-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-24 md:mb-32 lg:mb-40">
           {/* Left Column - Main Heading */}
           <div className="flex flex-col justify-center">
             <p className="text-white text-lg md:text-xl lg:text-2xl font-light mb-3 md:mb-4">
@@ -43,7 +43,7 @@ export default function HeroSection() {
         </div>
 
         {/* Bottom Section - Services */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-12 pb-8 md:pb-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-12">
           {/* Service 01 */}
           <div className="space-y-2">
             <p className="text-white/60 text-sm md:text-base font-medium">01</p>
