@@ -5,7 +5,6 @@ import emailjs from "@emailjs/browser";
 import { Phone, CircleHelp, ChevronDown } from "lucide-react";
 import Header from "../../../components/header";
 import Footer from "../../../components/footer";
-import { initializeInteractions } from "../../../lib/interactions";
 import { trackContactFormSubmit } from "../../../lib/analytics";
 
 import Modal from "../../../components/modal";
@@ -25,10 +24,8 @@ const ContactPageContent = () => {
     message: "",
   });
 
-  useEffect(() => {
-    const cleanup = initializeInteractions();
-    return cleanup;
-  }, []);
+  // interactions intentionally NOT initialized on this page to disable
+  // cursor/icon hover effects for a cleaner contact form experience.
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,

@@ -141,9 +141,9 @@ export default function TabPanels({ active }: Props) {
       id={`tab-panel-${active}`}
       aria-labelledby={`tab-${active}`}
     >
-      <div className="w-full bg-white rounded-2xl py-6 md:py-10 px-6 lg:px-8 shadow-sm border border-slate-100">
+      <div className="w-full bg-slate-800 rounded-2xl py-6 md:py-10 px-6 lg:px-8">
         <div className="text-center mb-6">
-          <p className="mt-2 text-sm text-slate-600 max-w-2xl mx-auto">
+          <p className="mt-2 text-sm text-gray-300 max-w-2xl mx-auto">
             {panel.description}
           </p>
         </div>
@@ -154,10 +154,10 @@ export default function TabPanels({ active }: Props) {
             return (
               <article
                 key={skill}
-                className="bg-white rounded-2xl p-5 shadow-sm border border-slate-100 flex items-center justify-center h-full"
+                className="bg-slate-700 rounded-2xl p-5 border border-slate-600 hover:border-[#0253EE] transition-colors flex items-center justify-center h-full"
               >
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 flex items-center justify-center shrink-0">
                     <img
                       src={`/${icon}`}
                       alt={`${skill} icon`}
@@ -166,10 +166,10 @@ export default function TabPanels({ active }: Props) {
                   </div>
 
                   <div>
-                    <h3 className="text-lg font-semibold text-blue-600 mb-2">
+                    <h3 className="text-lg font-semibold text-[#0253EE] mb-2">
                       {skill}
                     </h3>
-                    <p className="text-sm text-slate-600">
+                    <p className="text-sm text-gray-300">
                       {SKILL_DESCRIPTIONS[skill] ??
                         "Keahlian ini digunakan untuk membangun bagian terkait dalam proyek."}
                     </p>

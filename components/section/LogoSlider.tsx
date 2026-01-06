@@ -54,7 +54,8 @@ const PartnersSection = () => {
   const duration = trackWidth ? Math.max(8, trackWidth / SPEED_PX_PER_SEC) : 25;
 
   return (
-    <section className="logo-section bg-white backdrop-blur-md py-6 overflow-hidden">
+    <div className="w-full -mt-1" style={{ backgroundColor: '#0a1628' }}>
+      <section className="logo-section bg-slate-800 backdrop-blur-md py-16 overflow-hidden rounded-b-[90px]">
       <div className="slider-viewport overflow-hidden">
         <div
           className={`logo-slider ${trackWidth ? "is-ready" : ""}`}
@@ -101,7 +102,7 @@ const PartnersSection = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
 
         /* Hide any unexpected hairline between sections on small screens */
         @media (max-width: 640px) {
@@ -169,6 +170,7 @@ const PartnersSection = () => {
         }
       `}</style>
     </section>
+    </div>
   );
 };
 

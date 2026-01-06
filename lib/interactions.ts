@@ -46,8 +46,13 @@ export class PortfolioInteractions {
     const activeIcons: HTMLElement[] = [];
     let iconsEnabled = true;
 
+    const MAX_ICONS = 30; // Batas wajar untuk mencegah penumpukan
     const spawnIcon = (x: number, y: number, vx: number, vy: number) => {
       if (!iconsEnabled) return;
+
+      // Jika sudah sangat banyak ikon di layar, kurangi spawn lebih jauh
+      if (activeIcons.length > MAX_ICONS * 2) return;
+
       const img = document.createElement("img");
       img.src = iconSources[Math.floor(Math.random() * iconSources.length)];
       img.className = "cursor-icon pointer-events-none";
@@ -59,13 +64,41 @@ export class PortfolioInteractions {
       img.style.transform = "translate(-50%, -50%) scale(1)";
       img.style.opacity = "1";
       img.style.zIndex = "9999";
-      img.style.transition = "opacity 400ms linear, transform 600ms cubic-bezier(.2,.8,.2,1)";
+
+      // Sesuaikan transisi berdasarkan kepadatan ikon
+      const isCrowded = activeIcons.length >= MAX_ICONS;
+      img.style.transition = isCrowded
+        ? "opacity 180ms linear, transform 260ms cubic-bezier(.2,.8,.2,1)"
+        : "opacity 400ms linear, transform 600ms cubic-bezier(.2,.8,.2,1)";
 
       document.body.appendChild(img);
       activeIcons.push(img);
 
-      const lifetime = 900 + Math.random() * 600;
+      // Jika sudah terlalu banyak, percepat lifetime agar hilang cepat
+      const baseLifetime = 900 + Math.random() * 600;
+      const lifetime = isCrowded ? Math.max(250, baseLifetime * 0.4) : baseLifetime;
       const start = performance.now();
+
+      // Jika jumlah ikon melebihi batas, segera retire ikon paling lama
+      const retireOldIcons = () => {
+        while (activeIcons.length > MAX_ICONS) {
+          const old = activeIcons.shift();
+          if (!old) break;
+          try {
+            // Percepat transisi penghilangan
+            old.style.transition = "opacity 180ms linear, transform 200ms ease";
+            old.style.opacity = "0";
+            old.style.transform = "translate(-50%, -50%) scale(1.15)";
+            setTimeout(() => {
+              if (old.parentNode) old.parentNode.removeChild(old);
+            }, 220);
+          } catch (e) {
+            if (old.parentNode) old.parentNode.removeChild(old);
+          }
+        }
+      };
+
+      if (activeIcons.length > MAX_ICONS) retireOldIcons();
 
       function animate(time: number) {
         const t = time - start;
@@ -76,7 +109,7 @@ export class PortfolioInteractions {
         img.style.top = ny + "px";
         if (progress > 0.7) {
           img.style.opacity = String(1 - (progress - 0.7) / 0.3);
-          img.style.transform = `translate(-50%, -50%) scale(${1 + progress * 0.3})`;
+          img.style.transform = `translate(-50%, -50%) scale(${1 + progress * 0.25})`;
         }
         if (progress < 1) {
           requestAnimationFrame(animate);

@@ -102,7 +102,7 @@ const TimelineNode = ({ data, side, nodeRef, showMobileDot }: { data: any, side:
         <div className="relative w-full mb-8 lg:mb-12">
             {/* Dot Penanda Mobile - Positioned relative to this card */}
             {showMobileDot && (
-                <div className="absolute left-[-34px] top-[66px] lg:hidden">
+                <div className="absolute left-[-34px] top-66px lg:hidden">
                     <div className="h-5 w-5 rounded-full bg-slate-300 border-4 border-white shadow-md dot-marker" />
                 </div>
             )}

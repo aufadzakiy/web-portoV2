@@ -4,11 +4,13 @@ import { useEffect, useState } from "react";
 import { initializeInteractions } from "../../lib/interactions";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
+import BrandFooter from "../../components/BrandFooter";
 import HeroSection from "../../components/section/HeroSection";
 import LogoSlider from "../../components/section/LogoSlider";
 import TabsSection from "../../components/section/TabsSection";
 import CtaBannerSection from "../../components/section/CtaBanner";
 import ProjectSection from "../../components/section/ProjectSection";
+import CustomCursor from "../../components/CustomCursor";
 import Link from "next/link";
 
 export default function Home() {
@@ -21,25 +23,37 @@ export default function Home() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    // Load client-only interactions (cursor icons, animations)
-    const cleanup = initializeInteractions();
-    return cleanup;
-  }, []);
+  // useEffect(() => {
+  //   // Load client-only interactions (cursor icons, animations)
+  //   const cleanup = initializeInteractions();
+  //   return cleanup;
+  // }, []);
 
   return (
     <div className="min-h-screen">
+      <CustomCursor />
       <Header />
 
       <main>
-        <HeroSection />
-        <LogoSlider />
-        <TabsSection />
-        <ProjectSection />
-        <CtaBannerSection />
+        {/* HeroSection gradient should be full-width (render outside max-w container) */}
+        <div className="w-full">
+          <HeroSection />
+        </div>
+
+        <div className="w-full">
+          {/* LogoSlider intentionally full-width */}
+          <LogoSlider />
+        </div>
+
+        <div className="w-full">
+          <TabsSection />
+          <ProjectSection />
+          <CtaBannerSection />
+        </div>
       </main>
 
       <Footer />
+      <BrandFooter />
 
       {/* Contact Button (moves up when Back-to-top appears) */}
       <Link

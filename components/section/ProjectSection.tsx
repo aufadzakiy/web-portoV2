@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Eye, Code } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 import { fadeIn } from '../../lib/animation.js';
 
 type Project = {
@@ -44,6 +44,26 @@ const projects: Project[] = [
     liveDemoUrl: '#',
     sourceCodeUrl: '#',
   },
+  {
+    title: 'Sistem Manajemen Pelatihan K3',
+    description:
+      "Mengembangkan sistem manajemen pelatihan Keselamatan dan Kesehatan Kerja (K3) untuk mengelola pendaftaran, jadwal, dan sertifikasi peserta pelatihan.",
+    image: '/porto1.png',
+    role: ['Full-Stack Developer'],
+    technologies: ['Laravel', 'MySQL', 'Tailwind CSS'],
+    liveDemoUrl: '#',
+    sourceCodeUrl: '#',
+  },
+  {
+    title: 'Landing Page BRDZ',
+    description:
+      "Merancang dan membangun landing page modern untuk brand BRDZ dengan fokus pada user experience, performa optimal, dan desain yang menarik.",
+    image: '/porto2.png',
+    role: ['Frontend Developer', 'UI/UX Designer'],
+    technologies: ['React', 'TypeScript', 'Tailwind CSS'],
+    liveDemoUrl: '#',
+    sourceCodeUrl: '#',
+  },
 ];
 
 const techIconMap: { [key: string]: string } = {
@@ -73,158 +93,267 @@ const ProjectSection = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % projectCount);
   };
 
-  useEffect(() => {
-    const slideInterval = setInterval(goToNext, 5000); // Slide every 5 seconds
-    return () => clearInterval(slideInterval); // Clean up on unmount
-  }, []);
-
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
-  };
+  const currentProject = projects[currentIndex];
 
   return (
     <motion.section
       id="projects"
-      className="py-15 bg-[#0253EE] lg:bg-white sm:py-15"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      variants={sectionVariants}
+      className="py-16 md:py-0 px-4 sm:px-6 lg:px-7"
+      style={{
+        backgroundColor: '#0a1628',
+        backgroundImage: 'url(/bg-garis-kotak.svg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'repeat'
+      }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
     >
-      <div className="container mx-auto px-6 lg:px-8">
-        {/* Decorative gradient lines with label */}
-        <motion.div
-          variants={fadeIn("down")}
-          className="flex items-center justify-center mb-8"
-        >
-          <div
-            className="w-24 h-[1px] mr-3 rounded-sm bg-gradient-to-r from-slate-400/20 via-slate-400/50 to-slate-400/90"
-            aria-hidden="true"
-          />
-          <span className="text-sm text-white lg:text-gray-600 text-center">My Portfolio</span>
-          <div
-            className="w-24 h-[1px] ml-3 rounded-sm bg-gradient-to-l from-slate-400/20 via-slate-400/50 to-slate-400/90"
-            aria-hidden="true"
-          />
-        </motion.div>
-        <h2 className="text-5xl font-bold text-center text-white lg:text-black mb-6">
-          Mewujudkan Ide Menjadi Karya
-        </h2>
-        <p className="text-lg text-white lg:text-black text-center max-w-3xl mx-auto mb-12">
-          Berikut adalah beberapa proyek pilihan yang merepresentasikan keahlian saya dalam mengubah tantangan kompleks menjadi solusi digital yang fungsional dan elegan.
-        </p>
-
-        <div className="relative py-4">
-          <div className="relative max-w-[1070px] mx-auto">
-            {/* Add mobile padding and explicit bg so the shadow is visible on all sides on small screens */}
-            <div className="rounded-2xl p-4 lg:p-0 bg-white">
-              <div className="overflow-hidden rounded-2xl">
-                              <div
-                                className="flex transition-transform duration-500 ease-in-out"
-                                style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-                              >
-                                {projects.map((project, idx) => (
-                                  <div key={idx} className="min-w-full lg:bg-gray-50">
-                                    <div className="grid grid-cols-1 lg:grid-cols-2 items-end lg:items-center">
-                                      <div className={`order-1 p-8 lg:p-12 space-y-6 ${idx % 2 === 1 ? 'lg:order-2' : 'lg:order-1'}`}>
-                                        <div className="flex flex-wrap items-center gap-2 mb-4">
-                                          {project.role.map((r, i) => (
-                                            <span key={i} className="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full">
-                                              {r}
-                                            </span>
-                                          ))}
-                                        </div>
-                                        <h3 className="text-3xl font-bold text-gray-900 leading-tight">
-                                          {project.title}
-                                        </h3>
-                                        <p className="text-gray-600 text-lg leading-relaxed lg:text-justify">
-                                          {project.description}
-                                        </p>
-                                        <div>
-                                          <h4 className="text-md font-semibold text-gray-800 mb-3">Technologies Used:</h4>
-                                          <div className="flex flex-wrap gap-2">
-                                            {project.technologies.map((tech, i) => {
-                                              const iconSrc = techIconMap[tech];
-                                              return (
-                                                <span
-                                                  key={i}
-                                                  className="inline-flex items-center bg-gray-100 text-gray-800 text-sm font-medium px-3 py-1 rounded-full"
-                                                >
-                                                  {iconSrc && <img src={iconSrc} alt={`${tech} icon`} className="w-4 h-4 mr-2" />}
-                                                  {tech}
-                                                </span>
-                                              );
-                                            })}
-                                          </div>
-                                        </div>
-                                        <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                                          {project.liveDemoUrl && (
-                                            <a
-                                              href={project.liveDemoUrl}
-                                              target="_blank"
-                                              rel="noopener noreferrer"
-                                              className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-medium rounded-full hover:bg-blue-700 transition-colors duration-200 shadow-sm w-full sm:flex-1"
-                                            >
-                                              <Eye className="w-5 h-5 mr-2" />
-                                              View Project
-                                            </a>
-                                          )}
-                                          {project.sourceCodeUrl && (
-                                            <a
-                                              href={project.sourceCodeUrl}
-                                              target="_blank"
-                                              rel="noopener noreferrer"
-                                              className="inline-flex items-center justify-center px-6 py-3 bg-black text-white font-medium rounded-full hover:bg-gray-800 transition-colors duration-200 shadow-sm w-full sm:flex-1"
-                                            >
-                                              <Code className="w-5 h-5 mr-2" />
-                                              View Code
-                                            </a>
-                                          )}
-                                        </div>
-                                      </div>
-                                      <div className={`order-2 flex p-10 lg:p-0 justify-center items-center bg-white h-full ${idx % 2 === 1 ? 'lg:order-1' : 'lg:order-2'}`}>
-                                        <img
-                                          src={project.image}
-                                          alt={project.title}
-                                          className="w-full h-full object-cover rounded-xl lg:rounded-none"
-                                        />
-                                      </div>
-                                    </div>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          </div>            <div className="absolute left-1/2 -translate-x-1/2 bottom-5 flex space-x-2">
-              {projects.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrentIndex(i)}
-                  aria-label={`Go to project ${i + 1}`}
-                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                    i === currentIndex ? 'w-6 bg-blue-600' : 'bg-gray-300 hover:bg-gray-400'
-                  }`}
-                />
-              ))}
+      <div className="container mx-auto max-w-[1600px] px-8 md:px-12 lg:px-8">
+        <div className="bg-white rounded-3xl p-8 md:p-12 lg:p-16 pb-24 md:pb-28 overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-[450px]">
+          {/* Left Section - Dynamic Text Content */}
+          <div className="space-y-8 lg:pr-12">
+            {/* Number Indicator with decorative line */}
+            <div className="flex items-center gap-4">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentIndex}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 20 }}
+                  transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  className="text-6xl sm:text-7xl font-bold text-[#0253EE]"
+                >
+                  0{currentIndex + 1}
+                </motion.div>
+              </AnimatePresence>
+              <div className="flex-1 h-px bg-gradient-to-r from-blue-500/30 via-blue-400/40 to-transparent" />
+              <div className="hidden sm:flex gap-2 text-gray-500 text-sm">
+                {projects.map((_, i) => (
+                  <span key={i} className={i === currentIndex ? 'text-[#0253EE] font-semibold' : ''}>
+                    0{i + 1}
+                  </span>
+                ))}
+              </div>
             </div>
+
+            {/* Project Description */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.1 }}
+                className="space-y-4"
+              >
+                <p className="text-gray-600 text-lg leading-relaxed">
+                  {currentProject.description}
+                </p>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Label */}
+            <div className="text-sm text-blue-600 font-semibold">/Projects</div>
+
+            {/* Main Title */}
+            <AnimatePresence mode="wait">
+              <motion.h2
+                key={currentIndex}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.2 }}
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight"
+                style={{ 
+                  background: 'linear-gradient(135deg, #1e40af 0%, #7c3aed 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
+                }}
+              >
+                {currentProject.title}
+              </motion.h2>
+            </AnimatePresence>
+
+            {/* CTA Button */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#0253EE] to-[#3b82f6] text-white rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300 group"
+            >
+              <span>Learn More</span>
+              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                <Sparkles className="w-5 h-5 text-[#0253EE]" />
+              </div>
+            </motion.button>
           </div>
 
-          <button
-            onClick={goToPrevious}
-            className="absolute left-0 top-1/2 -translate-y-1/2 w-12 h-12 bg-[#0253EE] hover:bg-blue-500 rounded-full hidden md:flex items-center justify-center text-white transition-colors duration-200 shadow-lg z-10"
-            aria-label="Previous Project"
-          >
-            <ChevronLeft size={24} />
-          </button>
+          {/* Right Section - Single Card Display */}
+          <div className="relative h-[400px] sm:h-[480px] lg:h-[550px] flex items-center justify-center">
+            {/* Card Container */}
+            <div className="relative w-full h-full flex items-center justify-center">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentIndex}
+                  className="relative"
+                  initial={{
+                    opacity: 0,
+                    y: 50,
+                    scale: 0.9,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                  }}
+                  exit={{
+                    opacity: 0,
+                    y: -50,
+                    scale: 0.9,
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    ease: [0.4, 0, 0.2, 1],
+                  }}
+                >
+                  {/* Card */}
+                  <div className="relative w-[320px] sm:w-[360px] h-[400px] sm:h-[480px] transform-gpu">
+                    <div className="relative w-full h-full rounded-[40px] overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6)]">
+                      {/* Background Image */}
+                      <div className="absolute inset-0">
+                        <img
+                          src={currentProject.image}
+                          alt={currentProject.title}
+                          className="w-full h-full object-cover"
+                        />
+                        {/* Gradient Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                      </div>
 
-          <button
-            onClick={goToNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 w-12 h-12 bg-[#0253EE] hover:bg-blue-500 rounded-full hidden md:flex items-center justify-center text-white transition-colors duration-200 shadow-lg z-10"
-            aria-label="Next Project"
-          >
-            <ChevronRight size={24} />
-          </button>
+                      {/* Content Overlay */}
+                      <motion.div 
+                        className="relative h-full flex flex-col justify-between p-6 sm:p-8 z-10"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+                      >
+                        {/* Top Section */}
+                        <div className="flex items-start justify-between">
+                          <div className="flex items-center gap-2">
+                            <div className="w-2 h-2 rounded-full bg-white/70"></div>
+                            <span className="text-white/70 text-sm font-light">
+                              0{currentIndex + 1}/0{projects.length}
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Bottom Section */}
+                        <div className="space-y-4">
+                          {/* Title */}
+                          <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
+                            {currentProject.title}
+                          </h3>
+                          
+                          {/* Description/Role */}
+                          <p className="text-white/80 text-sm font-light">
+                            {currentProject.role.join(' • ')}
+                          </p>
+
+                          {/* Technologies */}
+                          <div className="flex flex-wrap gap-2 items-center">
+                            {currentProject.technologies.map((tech, idx) => (
+                              <div
+                                key={idx}
+                                className="flex items-center gap-2 px-3 py-1.5 bg-white/10 backdrop-blur-sm rounded-full border border-white/20"
+                              >
+                                {techIconMap[tech] && (
+                                  <img
+                                    src={techIconMap[tech]}
+                                    alt={tech}
+                                    className="w-4 h-4 object-contain"
+                                  />
+                                )}
+                                <span className="text-xs text-white/90 font-medium">{tech}</span>
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Action Button */}
+                          <motion.button
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.4 }}
+                            className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/20 backdrop-blur-md text-white rounded-full text-sm font-medium border border-white/30 hover:bg-white/30 transition-all duration-300 group"
+                          >
+                            <span>View Project</span>
+                            <Sparkles className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
+                          </motion.button>
+                        </div>
+                      </motion.div>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* Vertical Navigation with Dots - Right Side */}
+            <div className="absolute right-4 top-1/2 -translate-y-1/2 z-40 flex flex-col items-center gap-6">
+              {/* Previous Button (Up) */}
+              <motion.button
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={goToPrevious}
+                className="w-12 h-12 bg-white hover:bg-gray-50 rounded-full flex items-center justify-center transition-colors duration-200 shadow-lg border-2 border-blue-500/20"
+                aria-label="Previous Project"
+              >
+                <ChevronLeft className="w-6 h-6 text-[#0253EE] rotate-90" />
+              </motion.button>
+
+              {/* Dot Indicators */}
+              <div className="flex flex-col gap-3 py-2">
+                {projects.map((_, index) => (
+                  <motion.button
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    className="relative group"
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.9 }}
+                    aria-label={`Go to project ${index + 1}`}
+                  >
+                    <div
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        index === currentIndex
+                          ? 'bg-gradient-to-r from-[#0253EE] to-[#3b82f6] scale-125'
+                          : 'bg-gray-300 hover:bg-blue-300'
+                      }`}
+                    />
+                    {/* Tooltip */}
+                    <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+                      <div className="bg-gray-900 text-white text-xs px-2 py-1 rounded shadow-lg">
+                        {projects[index].title}
+                      </div>
+                    </div>
+                  </motion.button>
+                ))}
+              </div>
+
+              {/* Next Button (Down) */}
+              <motion.button
+                whileHover={{ scale: 1.1, y: 2 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={goToNext}
+                className="w-12 h-12 bg-gradient-to-r from-[#0253EE] to-[#3b82f6] hover:from-[#0243ce] hover:to-[#2563eb] rounded-full flex items-center justify-center transition-all duration-200 shadow-lg"
+                aria-label="Next Project"
+              >
+                <ChevronRight className="w-6 h-6 text-white rotate-90" />
+              </motion.button>
+            </div>
+          </div>
+        </div>
         </div>
       </div>
     </motion.section>
