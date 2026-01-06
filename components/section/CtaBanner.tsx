@@ -6,18 +6,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 const CtaBannerSection = () => {
-  // Shake animation for ringing phone effect
-  const shakeAnimation = {
-    x: [0, -3, 3, -3, 3, -2, 2, -1, 1, 0],
-    rotate: [0, -1, 1, -1, 1, -0.5, 0.5, 0],
-    transition: {
-      duration: 0.6,
-      repeat: Infinity,
-      repeatDelay: 2,
-      ease: "easeInOut"
-    }
-  };
-
   return (
     <section 
       className="pt-18 pb-4 relative overflow-hidden"
@@ -40,7 +28,15 @@ const CtaBannerSection = () => {
           {/* Main Card Container */}
           <motion.div
             variants={fadeIn()}
-            animate={shakeAnimation}
+            animate={{
+              x: [0, -3, 3, -3, 3, -2, 2, -1, 1, 0],
+              rotate: [0, -1, 1, -1, 1, -0.5, 0.5, 0],
+            }}
+            transition={{
+              duration: 0.6,
+              repeat: Infinity,
+              repeatDelay: 2,
+            }}
             className="relative rounded-[32px]"
           >
             <div className="bg-[#0a1628] rounded-[30px] border-2 border-[#004bd5]/30 backdrop-blur-sm">
